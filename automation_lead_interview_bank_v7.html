@@ -1,0 +1,2721 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Automation Lead — Interview Bank v7</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-page: #F4F7FC;
+      --bg-card: #FFFFFF;
+      --bg-side: #FFFFFF;
+      --bg-glass: rgba(255, 255, 255, 0.85);
+      --bg-hover: #EEF4FD;
+      --bg-subtle: #F1F5FA;
+      --border: #DCE5F2;
+      --border-strong: #C4D5EB;
+      
+      --text-main: #0B192C;
+      --text-muted: #475569;
+      --text-subtle: #94A3B8;
+      
+      --navy: #0F2C59;
+      --navy-light: #1E40AF;
+      --blue: #2563EB;
+      --blue-glow: rgba(37, 99, 235, 0.18);
+      --cyan: #06B6D4;
+      --amber: #F59E0B;
+      --emerald: #10B981;
+      
+      --c-java: #8B5CF6;
+      --c-selenium: #10B981;
+      --c-playwright: #F97316;
+      --c-cucumber: #84CC16;
+      --c-manual: #EF4444;
+      --c-api: #06B6D4;
+      --c-testng: #EC4899;
+      --c-maven: #D97706;
+      --c-devops: #099268;
+      --c-lead: #2563EB;
+
+      --r-lg: 16px;
+      --r-md: 12px;
+      --r-sm: 8px;
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+      --shadow-md: 0 4px 16px rgba(15, 23, 42, 0.08);
+      --shadow-lg: 0 12px 32px rgba(15, 23, 42, 0.12);
+      
+      --code-bg: #0F172A;
+      --code-text: #E2E8F0;
+    }
+
+    [data-theme="dark"] {
+      --bg-page: #0B0F19;
+      --bg-card: #151D2A;
+      --bg-side: #111827;
+      --bg-glass: rgba(17, 24, 39, 0.85);
+      --bg-hover: #1E293B;
+      --bg-subtle: #192334;
+      --border: #243247;
+      --border-strong: #334663;
+      
+      --text-main: #F1F5F9;
+      --text-muted: #94A3B8;
+      --text-subtle: #64748B;
+      
+      --navy: #38BDF8;
+      --navy-light: #60A5FA;
+      --blue: #3B82F6;
+      --blue-glow: rgba(59, 130, 246, 0.25);
+      --cyan: #22D3EE;
+      --amber: #FBBF24;
+      --emerald: #34D399;
+      
+      --c-java: #A78BFA;
+      --c-selenium: #34D399;
+      --c-playwright: #FB923C;
+      --c-cucumber: #A3E635;
+      --c-manual: #F87171;
+      --c-api: #38BDF8;
+      --c-testng: #F472B6;
+      --c-maven: #FBBF24;
+      --c-devops: #2DD4BF;
+      --c-lead: #60A5FA;
+
+      --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+      
+      --code-bg: #070A12;
+      --code-text: #E2E8F0;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+    body {
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* ---------- Sticky Topbar ---------- */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    .bar-in {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: var(--r-md);
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 4px 12px var(--blue-glow);
+    }
+    h1 {
+      font-size: clamp(18px, 2.5vw, 22px);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+    }
+    h1 span {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .badge {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--bg-hover);
+      border: 1px solid var(--border-strong);
+      padding: 5px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .btn-header {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 7px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-header:hover {
+      background: var(--bg-hover);
+      border-color: var(--border-strong);
+      transform: translateY(-1px);
+    }
+    .btn-header svg { flex: none; }
+
+    /* ---------- Container Wrap ---------- */
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 24px 80px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    /* ---------- Sidebar ---------- */
+    .side {
+      position: sticky;
+      top: 82px;
+      background: var(--bg-side);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      padding: 18px;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    /* ---------- Search ---------- */
+    .search-box {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .search-box svg.search-icon {
+      position: absolute;
+      left: 12px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+    .search-box input {
+      width: 100%;
+      background: var(--bg-subtle);
+      border: 1.5px solid var(--border);
+      border-radius: var(--r-md);
+      padding: 9px 34px 9px 36px;
+      font-family: inherit;
+      font-size: 13.5px;
+      color: var(--text-main);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+    .search-box input:focus {
+      background: var(--bg-card);
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px var(--blue-glow);
+    }
+    .search-clear {
+      position: absolute;
+      right: 10px;
+      background: none;
+      border: none;
+      color: var(--text-subtle);
+      font-size: 16px;
+      cursor: pointer;
+      display: none;
+      padding: 2px 6px;
+      border-radius: 50%;
+    }
+    .search-clear:hover { color: var(--text-main); }
+
+    /* ---------- Status Filter Tabs ---------- */
+    .status-tabs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      background: var(--bg-subtle);
+      padding: 4px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--border);
+    }
+    .tab-btn {
+      background: none;
+      border: none;
+      padding: 6px 8px;
+      border-radius: var(--r-sm);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+    .tab-btn:hover { color: var(--text-main); background: rgba(255,255,255,0.4); }
+    [data-theme="dark"] .tab-btn:hover { background: rgba(255,255,255,0.05); }
+    .tab-btn.active {
+      background: var(--bg-card);
+      color: var(--blue);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* ---------- Track Chips ---------- */
+    .side-title {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-subtle);
+      margin-bottom: 6px;
+    }
+    .chips { display: flex; flex-direction: column; gap: 4px; }
+    .chip {
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 8px 12px;
+      border-radius: var(--r-md);
+      cursor: pointer;
+      text-align: left;
+      background: none;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.15s ease;
+      width: 100%;
+    }
+    .chip:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+    }
+    .chip i {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--dot, var(--navy));
+      flex: none;
+      box-shadow: 0 0 0 2px var(--blue-glow);
+    }
+    .chip span { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .chip b {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-subtle);
+      background: var(--bg-subtle);
+      padding: 2px 7px;
+      border-radius: 999px;
+    }
+    .chip[aria-pressed="true"] {
+      background: var(--bg-hover);
+      border-color: var(--border-strong);
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .chip[aria-pressed="true"] b {
+      background: var(--blue);
+      color: #fff;
+    }
+
+    /* ---------- Progress Dashboard Widget ---------- */
+    .progress-box {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .radial-widget {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: var(--bg-subtle);
+      padding: 12px 14px;
+      border-radius: var(--r-md);
+      border: 1px solid var(--border);
+    }
+    .radial-svg { width: 52px; height: 52px; flex: none; transform: rotate(-90deg); }
+    .radial-bg { stroke: var(--border); stroke-width: 6; fill: none; }
+    .radial-fill {
+      stroke: var(--blue);
+      stroke-width: 6;
+      fill: none;
+      stroke-linecap: round;
+      stroke-dasharray: 138;
+      stroke-dashoffset: 138;
+      transition: stroke-dashoffset 0.5s ease;
+    }
+    .radial-text {
+      display: flex;
+      flex-direction: column;
+    }
+    .radial-score {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+    .radial-label {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .reset-btn {
+      background: none;
+      border: none;
+      color: var(--text-subtle);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-align: left;
+      transition: color 0.15s ease;
+      margin-top: 4px;
+    }
+    .reset-btn:hover { color: var(--c-manual); }
+
+    /* ---------- Main Content Area ---------- */
+    .bulk {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+      padding: 0 4px;
+    }
+    .results-count {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .bulk-actions {
+      display: flex;
+      gap: 8px;
+    }
+    .btn-subtle {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 5px 12px;
+      border-radius: var(--r-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-subtle:hover {
+      background: var(--bg-hover);
+      color: var(--text-main);
+      border-color: var(--border-strong);
+    }
+
+    /* ---------- Groups & Cards ---------- */
+    .group-head {
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gc, var(--blue));
+      margin: 24px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 2px solid var(--gc, var(--border));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .group-head span:last-child {
+      font-size: 11px;
+      color: var(--text-subtle);
+      font-weight: 600;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      margin-bottom: 10px;
+      overflow: hidden;
+      border-left: 5px solid var(--cc, var(--blue));
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-strong);
+    }
+    .q {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 16px 18px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .q:hover { background: var(--bg-hover); }
+    .qnum {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--cc);
+      padding-top: 2px;
+      flex: none;
+    }
+    .qtext {
+      flex: 1;
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--text-main);
+    }
+
+    /* Action Buttons in Card Header */
+    .card-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: none;
+    }
+    .btn-icon {
+      background: none;
+      border: none;
+      color: var(--text-subtle);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .btn-icon:hover {
+      background: var(--bg-subtle);
+      color: var(--text-main);
+    }
+    .btn-star.bookmarked {
+      color: var(--amber);
+    }
+    .tick {
+      width: 24px;
+      height: 24px;
+      border: 2px solid var(--border-strong);
+      border-radius: 50%;
+      background: var(--bg-card);
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      color: transparent;
+      transition: all 0.15s ease;
+    }
+    .tick:hover { border-color: var(--emerald); }
+    .card.done {
+      opacity: 0.85;
+      background: var(--bg-subtle);
+    }
+    .card.done .tick {
+      background: var(--emerald);
+      border-color: var(--emerald);
+      color: #fff;
+    }
+    .card.done .qtext {
+      color: var(--text-muted);
+    }
+    .caret {
+      color: var(--text-subtle);
+      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      margin-top: 4px;
+    }
+    .card.open .caret { transform: rotate(90deg); }
+
+    /* Accordion Smooth Grid Transition */
+    .a-wrap {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card.open .a-wrap {
+      grid-template-rows: 1fr;
+    }
+    .a-inner {
+      overflow: hidden;
+    }
+    .a {
+      padding: 4px 20px 22px 48px;
+      color: var(--text-muted);
+      font-size: 14.5px;
+      border-top: 1px dashed var(--border);
+      margin-top: 4px;
+      padding-top: 16px;
+    }
+    .a p { margin-bottom: 12px; }
+    .a ul { margin-bottom: 12px; padding-left: 20px; }
+    .a li { margin-bottom: 6px; }
+    .a li::marker { color: var(--cc); font-weight: bold; }
+    .a strong { color: var(--text-main); font-weight: 700; }
+    .a code {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 12.5px;
+      background: var(--bg-subtle);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--navy-light);
+    }
+
+    /* Code Block with Copy Button */
+    .code-container {
+      position: relative;
+      margin: 12px 0 16px;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      border: 1px solid var(--border-strong);
+      box-shadow: var(--shadow-sm);
+    }
+    .code-header {
+      background: #0F172A;
+      padding: 6px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #1E293B;
+    }
+    .code-lang {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: #94A3B8;
+      text-transform: uppercase;
+    }
+    .btn-copy {
+      background: #1E293B;
+      border: 1px solid #334663;
+      color: #CBD5E1;
+      padding: 3px 10px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s ease;
+    }
+    .btn-copy:hover {
+      background: #334663;
+      color: #FFF;
+    }
+    .a pre {
+      background: var(--code-bg);
+      color: var(--code-text);
+      padding: 14px 16px;
+      overflow-x: auto;
+      margin: 0;
+    }
+    .a pre code {
+      background: none;
+      border: none;
+      padding: 0;
+      color: inherit;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    /* Syntax Highlighting */
+    .hl-kw { color: #F472B6; font-weight: 600; }
+    .hl-str { color: #A3E635; }
+    .hl-num { color: #FB923C; }
+    .hl-cmt { color: #64748B; font-style: italic; }
+    .hl-ann { color: #38BDF8; font-weight: 600; }
+
+    /* Comparison Table */
+    .a table {
+      border-collapse: separate;
+      border-spacing: 0;
+      width: 100%;
+      margin: 12px 0 16px;
+      font-size: 13.5px;
+      border: 1px solid var(--border);
+      border-radius: var(--r-md);
+      overflow: hidden;
+    }
+    .a th, .a td {
+      border-bottom: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+    .a td+td, .a th+th { border-left: 1px solid var(--border); }
+    .a tr:last-child td { border-bottom: none; }
+    .a th {
+      background: var(--bg-subtle);
+      font-weight: 700;
+      color: var(--text-main);
+      font-size: 12.5px;
+    }
+
+    /* Callout Tips */
+    .tip {
+      background: var(--bg-subtle);
+      border-left: 4px solid var(--cc);
+      border-radius: 0 var(--r-md) var(--r-md) 0;
+      padding: 12px 16px;
+      margin: 14px 0 4px;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .tip b {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--cc);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 56px 20px;
+      color: var(--text-muted);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      font-size: 14.5px;
+    }
+
+    /* Search Term Highlight */
+    mark.search-hl {
+      background: rgba(245, 158, 11, 0.3);
+      color: inherit;
+      padding: 0 2px;
+      border-radius: 2px;
+    }
+
+    /* ---------- Flashcard Practice Modal ---------- */
+    .modal-backdrop {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .modal-backdrop.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--r-lg);
+      width: 100%;
+      max-width: 720px;
+      max-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .modal-header {
+      padding: 14px 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-subtle);
+    }
+    .modal-body {
+      padding: 24px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .modal-footer {
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bg-subtle);
+    }
+    .fc-q {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+    .fc-answer {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+      display: none;
+    }
+    .fc-answer.show { display: block; }
+
+    @media (max-width: 840px) {
+      .layout { grid-template-columns: 1fr; gap: 20px; }
+      .side { position: static; }
+      .chips { flex-direction: row; flex-wrap: wrap; gap: 6px; }
+      .chip { width: auto; background: var(--bg-subtle); }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="bar-in">
+    <div class="brand">
+      <div class="brand-icon">QA</div>
+      <h1>Automation <span>Lead Bank</span></h1>
+    </div>
+    <div class="header-actions">
+      <button class="btn-header" id="btn-flashcard" title="Practice Active Recall">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M7 8h10M7 12h7"/></svg>
+        <span>Flashcards</span>
+      </button>
+      <button class="btn-header" id="btn-theme" title="Toggle Light/Dark Theme">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-sun"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+      </button>
+      <span class="badge" id="badge">48 Questions</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="layout">
+    <aside class="side">
+      <!-- Search -->
+      <div class="search-box">
+        <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        <input id="search" type="search" placeholder="Search (Cmd + K)" autocomplete="off">
+        <button class="search-clear" id="search-clear">×</button>
+      </div>
+
+      <!-- Status Filter Tabs -->
+      <div class="status-tabs">
+        <button class="tab-btn active" data-status="all">All</button>
+        <button class="tab-btn" data-status="bookmarked">★ Saved</button>
+        <button class="tab-btn" data-status="completed">✓ Done</button>
+        <button class="tab-btn" data-status="unanswered">? Left</button>
+      </div>
+
+      <!-- Category Tracks -->
+      <div>
+        <div class="side-title">Tracks</div>
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <!-- Progress Dashboard -->
+      <div class="progress-box">
+        <div class="side-title">Recall Progress</div>
+        <div class="radial-widget">
+          <svg class="radial-svg" viewBox="0 0 50 50">
+            <circle class="radial-bg" cx="25" cy="25" r="22"/>
+            <circle class="radial-fill" id="radial-fill" cx="25" cy="25" r="22"/>
+          </svg>
+          <div class="radial-text">
+            <span class="radial-score" id="radial-score">0%</span>
+            <span class="radial-label" id="score">0 / 48 mastered</span>
+          </div>
+        </div>
+        <button class="reset-btn" id="reset">Reset Progress</button>
+      </div>
+    </aside>
+
+    <main>
+      <div class="bulk">
+        <span class="results-count" id="count">Showing 48 questions</span>
+        <div class="bulk-actions">
+          <button class="btn-subtle" id="expand">Expand All</button>
+          <button class="btn-subtle" id="collapse">Collapse All</button>
+        </div>
+      </div>
+      <div id="list"></div>
+    </main>
+  </div>
+</div>
+
+<!-- Flashcard Practice Modal -->
+<div class="modal-backdrop" id="flashcard-modal">
+  <div class="modal-card">
+    <div class="modal-header">
+      <span class="badge" id="fc-track">Track</span>
+      <span style="font-size:13px; font-weight:700; color:var(--text-muted);" id="fc-counter">Question 1 of 48</span>
+      <button class="btn-subtle" id="fc-close">Esc Close</button>
+    </div>
+    <div class="modal-body">
+      <div class="fc-q" id="fc-q">Question text goes here</div>
+      <button class="btn-header" id="fc-reveal" style="width:100%; justify-content:center; padding:10px;">Reveal Answer (Space)</button>
+      <div class="fc-answer" id="fc-answer">Answer content</div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-subtle" id="fc-prev">← Prev</button>
+      <div style="display:flex; gap:8px;">
+        <button class="btn-subtle" id="fc-star">★ Star</button>
+        <button class="btn-header" id="fc-mark" style="background:var(--emerald); color:#fff; border:none;">✓ Mark Mastered</button>
+      </div>
+      <button class="btn-subtle" id="fc-next">Next →</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const CATS = {
+  lead:      { label: "Automation Framework",   color: "var(--c-lead)" },
+  java:      { label: "Java",                   color: "var(--c-java)" },
+  selenium:  { label: "Selenium",               color: "var(--c-selenium)" },
+  playwright:{ label: "Playwright",             color: "var(--c-playwright)" },
+  cucumber:  { label: "Cucumber / BDD",         color: "var(--c-cucumber)" },
+  manual:    { label: "API Testing",            color: "var(--c-manual)" },
+  api:       { label: "RestAssured",            color: "var(--c-api)" },
+  testng:    { label: "TestNG",                 color: "var(--c-testng)" },
+  maven:     { label: "Maven",                  color: "var(--c-maven)" },
+  devops:    { label: "DevOps",                 color: "var(--c-devops)" }
+};
+const Q = [
+/* ============ AUTOMATION FRAMEWORK ============ */
+{c:"lead",q:"How do you design a scalable test automation framework from scratch?",a:`
+<p>Start with a <strong>layered architecture</strong> so each layer changes for one reason:</p>
+<ul>
+<li><strong>Test layer</strong> — business intent only, no locators, no waits.</li>
+<li><strong>Page Objects / API clients</strong> — UI interactions and request builders.</li>
+<li><strong>Core</strong> — driver factory, waits, ThreadLocal management, custom exceptions.</li>
+<li><strong>Utilities</strong> — data readers (JSON/Excel/DB), config manager, DB and file helpers.</li>
+<li><strong>Reporting</strong> — Extent/Allure via listeners, never hard-wired into tests.</li>
+</ul>
+<p>Then bolt on: externalised config per environment, parallel execution, CI integration, and versioned test data. Design for the person maintaining it in year two.</p>
+<div class="tip"><b>Lead angle</b>Talk about adoption, not just architecture — coding standards, PR reviews, onboarding docs, and how you got manual testers contributing.</div>`},
+
+{c:"lead",q:"How do you decide what to automate and what stays manual?",a:`
+<p><strong>Automate:</strong> regression, smoke, data-driven flows, high-risk business paths, and anything run more than a few times with stable requirements.</p>
+<p><strong>Keep manual:</strong> exploratory, usability, accessibility judgement calls, one-off validations, and volatile features still changing weekly.</p>
+<p>The lens is ROI — (execution frequency × manual effort) versus (build cost + maintenance cost). A test run twice a year rarely pays back.</p>`},
+
+{c:"lead",q:"How do you measure and report automation effectiveness?",a:`
+<ul>
+<li><strong>Coverage</strong> — % of regression suite automated, and % of critical business flows covered.</li>
+<li><strong>Pass-rate trend</strong> — stability over time, not a single run.</li>
+<li><strong>Flaky rate</strong> — tests that needed a retry to pass.</li>
+<li><strong>Defect detection</strong> — bugs caught by automation before UAT/prod.</li>
+<li><strong>Cycle time saved</strong> — regression hours reduced per release.</li>
+<li><strong>Maintenance cost</strong> — hours spent fixing scripts per sprint.</li>
+</ul>
+<p>Report to stakeholders in risk and release-confidence terms, not script counts. Prune low-value tests every quarter.</p>`},
+
+{c:"lead",q:"Regression takes 6 hours. How do you bring it down?",a:`
+<ul>
+<li><strong>Parallelise</strong> — threads locally, sharding across CI agents/Grid.</li>
+<li><strong>Tier the suite</strong> — smoke (&lt;15 min on every commit), sanity, full regression nightly.</li>
+<li><strong>Push validations down the pyramid</strong> — move UI checks to API tests where the assertion doesn't need the browser; API is roughly 10× faster.</li>
+<li><strong>Set up data via API</strong> instead of clicking through the UI.</li>
+<li><strong>Remove duplicates</strong> — many suites validate the same login 40 times.</li>
+<li><strong>Test impact analysis</strong> — run only what the code change touches.</li>
+<li><strong>Headless</strong> for non-visual checks.</li>
+</ul>`},
+
+{c:"lead",q:"What's your strategy for test data management?",a:`
+<p>Keep data <strong>external and environment-scoped</strong> — JSON/Excel/DB/faker, never hardcoded in tests. Prefer creating data through API setup calls before the test and cleaning up after, so tests are self-sufficient.</p>
+<p>On shared environments, generate unique identifiers (UUID/timestamp) to avoid collisions between parallel threads and between teams. For data you can't create — legacy accounts, funded policies — maintain a reserved pool with a lease/release mechanism.</p>`},
+
+{c:"lead",q:"How do you handle flaky tests as a lead?",a:`
+<p>Treat flakiness as a defect with an owner, not background noise:</p>
+<ul>
+<li><strong>Measure it</strong> — tag every retried test in reports, track a weekly flaky list.</li>
+<li><strong>Classify the cause</strong> — timing/sync, test data collision, environment instability, genuine app race condition.</li>
+<li><strong>Fix the class, not the instance</strong> — a bad wait pattern usually repeats across 30 tests.</li>
+<li><strong>Quarantine</strong> persistent offenders out of the gating suite so the pipeline stays trustworthy — with a deadline to fix, not forever.</li>
+</ul>
+<div class="tip"><b>Say this</b>A red build people ignore is worse than no build. Trust in the suite is the real asset.</div>`},
+
+{c:"lead",q:"How do you manage reporting across a large suite?",a:`
+<p>Reports are generated by listeners, never by test code. Extent or Allure with: test steps, request/response logs for API tests, screenshot on failure, environment banner (env, browser, build number), and history/trend if the CI plugin supports it.</p>
+<p>For thread safety, hold the report object in a ThreadLocal. Publish HTML as a pipeline artifact and also emit JUnit XML so the CI tool's own test dashboard works.</p>
+<div class="tip"><b>Lead angle</b>The audience matters — devs want the stack trace, the release manager wants one line: is it safe to ship?</div>`},
+
+/* ============ JAVA ============ */
+{c:"java",q:"Difference between List, Set and Map — where do you use each in automation?",a:`
+<table>
+<tr><th>Type</th><th>Behaviour</th><th>Automation use</th></tr>
+<tr><td>List</td><td>Ordered, duplicates allowed</td><td>Results of <code>findElements()</code>, verifying dropdown order</td></tr>
+<tr><td>Set</td><td>No duplicates, unordered (LinkedHashSet keeps order)</td><td>Duplicate detection: <code>assertEquals(list.size(), new HashSet&lt;&gt;(list).size())</code>; window handles</td></tr>
+<tr><td>Map</td><td>Key–value</td><td>Test data rows, headers, config properties, JSON payloads</td></tr>
+</table>`},
+
+{c:"java",q:"Why ThreadLocal instead of a static WebDriver for parallel runs?",a:`
+<p><code>static</code> means one copy shared by every instance — fine for utilities and constants, fatal for a driver. In parallel execution all threads would drive the same browser session and stamp on each other.</p>
+<pre><code>public class DriverFactory {
+    private static ThreadLocal&lt;WebDriver&gt; tlDriver = new ThreadLocal&lt;&gt;();
+
+    public static void set(WebDriver driver) { tlDriver.set(driver); }
+    public static WebDriver get()            { return tlDriver.get(); }
+
+    public static void unload() {
+        if (tlDriver.get() != null) tlDriver.get().quit();
+        tlDriver.remove();          // prevents memory leak in thread pools
+    }
+}</code></pre>
+<p><code>static</code> gives global access; ThreadLocal gives each thread its own isolated copy. Always call <code>remove()</code> in teardown.</p>`},
+
+{c:"java",q:"How do you use exception handling in a framework?",a:`
+<p><code>try-catch-finally</code> plus custom exceptions for readable failures:</p>
+<ul>
+<li>Catch <code>StaleElementReferenceException</code> in wrapper methods and re-find the element once before failing.</li>
+<li><code>finally</code> / try-with-resources to close drivers, DB connections and file streams.</li>
+<li>Custom <code>FrameworkException</code> so a config typo doesn't surface as a raw NullPointerException.</li>
+<li><strong>Checked</strong> (IOException reading Excel) must be handled or declared; <strong>unchecked</strong> (NPE, NoSuchElement) happen at runtime.</li>
+</ul>
+<div class="tip"><b>Watch out</b>Never swallow an exception with an empty catch block to make a test "pass" — that's how false green suites are born.</div>`},
+
+{c:"java",q:"Which Java 8+ features do you use in automation?",a:`
+<ul>
+<li><strong>Lambdas</strong> — custom fluent waits: <code>wait.until(d -&gt; d.findElement(by).isDisplayed());</code></li>
+<li><strong>Streams</strong> — <code>elements.stream().map(WebElement::getText).collect(Collectors.toList());</code></li>
+<li><strong>Optional</strong> — safe access to nullable API response fields.</li>
+<li><strong>Method references</strong> — <code>WebElement::getText</code>.</li>
+<li><strong>Default methods</strong> — add helpers to listener interfaces without breaking implementers (this is why you can override just <code>onTestFailure</code> in ITestListener).</li>
+<li><strong>var</strong> (Java 10+), <strong>text blocks</strong> (Java 15+) — very handy for inline JSON payloads.</li>
+</ul>`},
+
+{c:"java",q:"Why are Strings immutable, and what is the String pool?",a:`
+<p>String objects can't be modified after creation — every "change" creates a new object. Reasons: safe sharing across threads, hashcode caching (so Strings work well as HashMap keys), and security (a file path or URL can't be mutated after validation).</p>
+<p>The <strong>string pool</strong> keeps literals in a shared area, so <code>"abc" == "abc"</code> is true but <code>new String("abc") == "abc"</code> is false — always compare with <code>.equals()</code>. Use <code>StringBuilder</code> when concatenating in loops.</p>`},
+
+{c:"java",q:"Explain equals() and hashCode() — why does the contract matter?",a:`
+<p>Contract: equal objects must return equal hash codes. Break it and HashMap/HashSet stop working — two "equal" objects land in different buckets, so lookups miss and duplicates slip in.</p>
+<p>In automation this bites when you build a POJO for API response comparison: if you override <code>equals()</code> to compare fields but forget <code>hashCode()</code>, your set-based duplicate check silently passes.</p>`},
+
+{c:"java",q:"Abstract class vs interface — when do you use which?",a:`
+<table>
+<tr><th>Abstract class</th><th>Interface</th></tr>
+<tr><td>Concrete + abstract methods</td><td>Abstract by default (default/static allowed since Java 8)</td></tr>
+<tr><td>Single inheritance</td><td>Implement many</td></tr>
+<tr><td>Constructors, instance state</td><td>Constants only</td></tr>
+<tr><td>"is-a" with shared code — BasePage</td><td>Contract/capability — WebDriver, ITestListener</td></tr>
+</table>
+<div class="tip"><b>One-liner</b>Abstract class when pages share behaviour; interface when unrelated classes must honour the same contract.</div>`},
+
+{c:"java",q:"String vs StringBuilder vs StringBuffer?",a:`
+<table>
+<tr><th></th><th>String</th><th>StringBuilder</th><th>StringBuffer</th></tr>
+<tr><td>Mutable</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>Thread-safe</td><td>Yes (immutable)</td><td>No</td><td>Yes (synchronized)</td></tr>
+<tr><td>Speed</td><td>Slow for concatenation</td><td>Fastest</td><td>Slower than Builder</td></tr>
+</table>
+<pre><code>String s = "";
+for (WebElement e : rows) s += e.getText();      // creates a new object each loop
+
+StringBuilder sb = new StringBuilder();
+for (WebElement e : rows) sb.append(e.getText()); // one object, mutated
+String result = sb.toString();</code></pre>
+<p>Default to StringBuilder inside loops; StringBuffer only when the same buffer is shared across threads — rare in test code.</p>`},
+
+{c:"java",q:"int vs Integer — and what are wrapper classes?",a:`
+<p><code>int</code> is a primitive (8 bytes of stack value, can't be null). <code>Integer</code> is the wrapper <strong>object</strong> — it can be null, carries methods like <code>parseInt()</code>, and is required by collections and generics (<code>List&lt;Integer&gt;</code>, not <code>List&lt;int&gt;</code>).</p>
+<p>Wrapper classes: Byte, Short, Integer, Long, Float, Double, Character, Boolean. <strong>Autoboxing</strong> converts primitive → wrapper automatically, unboxing goes the other way.</p>
+<pre><code>Integer a = 127, b = 127;
+System.out.println(a == b);        // true  — cached range -128..127
+
+Integer x = 128, y = 128;
+System.out.println(x == y);        // false — different objects!
+System.out.println(x.equals(y));   // true  — always compare with equals</code></pre>
+<div class="tip"><b>Gotcha</b>Unboxing a null Integer throws NullPointerException — common when a JSON field is missing and you assign it to an int.</div>`},
+
+{c:"java",q:"Difference between == and .equals()?",a:`
+<p><code>==</code> compares <strong>references</strong> for objects (and values for primitives). <code>.equals()</code> compares <strong>content</strong>, as overridden by the class.</p>
+<pre><code>String a = "chrome";
+String b = "chrome";
+String c = new String("chrome");
+
+a == b;         // true  — both point to the same pooled literal
+a == c;         // false — c is a new object on the heap
+a.equals(c);    // true  — same characters</code></pre>
+<p>In tests this matters constantly: <code>driver.getTitle() == "Dashboard"</code> can be false even when the text matches. Always use <code>.equals()</code>, or better, an assertion library: <code>assertEquals(driver.getTitle(), "Dashboard")</code>.</p>`},
+
+{c:"java",q:"ArrayList vs LinkedList vs Vector — which do you use?",a:`
+<table>
+<tr><th>ArrayList</th><th>LinkedList</th><th>Vector</th></tr>
+<tr><td>Dynamic array, index access O(1)</td><td>Doubly linked nodes, access O(n)</td><td>Legacy, synchronized ArrayList</td></tr>
+<tr><td>Slower insert/delete in the middle</td><td>Fast insert/delete</td><td>Slow — locks on every call</td></tr>
+<tr><td>Default choice for automation</td><td>Queue/stack-style workloads</td><td>Avoid; use CopyOnWriteArrayList if you truly need thread safety</td></tr>
+</table>
+<pre><code>List&lt;WebElement&gt; rows = driver.findElements(By.cssSelector(".item"));  // ArrayList
+List&lt;String&gt; texts = rows.stream().map(WebElement::getText).toList();</code></pre>
+<p><code>findElements()</code> returns a List — an empty list, not an exception, when nothing matches. That's the standard way to assert an element is absent.</p>`},
+
+{c:"java",q:"HashMap vs Hashtable vs ConcurrentHashMap?",a:`
+<table>
+<tr><th></th><th>HashMap</th><th>Hashtable</th><th>ConcurrentHashMap</th></tr>
+<tr><td>Thread-safe</td><td>No</td><td>Yes (whole-map lock)</td><td>Yes (segment/bucket level)</td></tr>
+<tr><td>Null key/value</td><td>One null key, many null values</td><td>None allowed</td><td>None allowed</td></tr>
+<tr><td>Use</td><td>Test data, headers, locator maps</td><td>Legacy — avoid</td><td>Shared state across parallel threads</td></tr>
+</table>
+<pre><code>Map&lt;String, String&gt; headers = new HashMap&lt;&gt;();
+headers.put("Content-Type", "application/json");
+headers.put("Authorization", "Bearer " + token);
+
+// TreeMap when you need keys sorted, LinkedHashMap to preserve insertion order</code></pre>`},
+
+{c:"java",q:"throw vs throws — and how do try/catch/finally fit in?",a:`
+<p><code>throw</code> raises an exception at a point in code. <code>throws</code> declares in the method signature that it may propagate one, pushing responsibility to the caller.</p>
+<pre><code>public String readConfig(String path) throws IOException {   // declares
+    if (path == null) throw new FrameworkException("Config path missing");  // raises
+    return Files.readString(Path.of(path));
+}
+
+try {
+    readConfig(null);
+} catch (FrameworkException | IOException e) {
+    logger.error("Config load failed", e);
+    throw new SkipException("Environment not configured");
+} finally {
+    driver.quit();      // always runs, pass or fail
+}</code></pre>`},
+
+{c:"java",q:"Explain access modifiers and where they show up in a framework.",a:`
+<table>
+<tr><th>Modifier</th><th>Same class</th><th>Same package</th><th>Subclass</th><th>Everywhere</th></tr>
+<tr><td>private</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+<tr><td>default (no keyword)</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td></tr>
+<tr><td>protected</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+<tr><td>public</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+</table>
+<pre><code>public class LoginPage extends BasePage {
+    private By usernameField = By.id("username");   // locators stay private
+    protected WebDriver driver;                     // shared with subclasses
+    public void login(String u, String p) { }       // the only thing tests call
+}</code></pre>
+<p>Note: classes themselves can only be <code>public</code> or default.</p>`},
+
+{c:"java",q:"What do final, static and abstract mean (non-access modifiers)?",a:`
+<ul>
+<li><strong>final</strong> — a class can't be extended, a method can't be overridden, a variable can't be reassigned. Use for constants: <code>private static final int TIMEOUT = 30;</code></li>
+<li><strong>static</strong> — belongs to the class, not an instance. Utility methods (<code>ScreenshotUtil.capture()</code>) and constants. Careful: static mutable state breaks parallel execution.</li>
+<li><strong>abstract</strong> — a class that can't be instantiated, or a method with no body that subclasses must implement.</li>
+</ul>
+<pre><code>public abstract class BasePage {
+    protected static final Duration TIMEOUT = Duration.ofSeconds(15);
+    public abstract boolean isPageLoaded();   // no body — every page defines it
+}</code></pre>`},
+
+{c:"java",q:"Explain constructors — default, parameterized, and super().",a:`
+<p>A constructor initialises an object, shares the class name, and has no return type. If you don't write one, Java supplies a no-arg default; the moment you write any constructor, that default disappears.</p>
+<pre><code>public class BasePage {
+    protected WebDriver driver;
+    public BasePage(WebDriver driver) { this.driver = driver; }
+}
+
+public class LoginPage extends BasePage {
+    public LoginPage(WebDriver driver) {
+        super(driver);        // must be the first statement — builds the parent first
+    }
+}</code></pre>
+<p>This is exactly why every page object takes the driver in its constructor: the page can't do anything without it, so the compiler enforces it.</p>`},
+
+{c:"java",q:"Can an interface have variables?",a:`
+<p>Yes, but only <strong>constants</strong> — every field is implicitly <code>public static final</code>, so it must be initialised and can never be reassigned. Interfaces hold no instance state.</p>
+<pre><code>public interface TestConstants {
+    int DEFAULT_TIMEOUT = 30;          // implicitly public static final
+    String BASE_URL = "https://qa.app.com";
+}</code></pre>
+<p>Since Java 8 interfaces can also have <code>default</code> and <code>static</code> methods (that's how TestNG lets you override only <code>onTestFailure</code>), and since Java 9, <code>private</code> helper methods.</p>`},
+
+{c:"java",q:"Method overloading vs overriding?",a:`
+<table>
+<tr><th>Overloading (compile-time)</th><th>Overriding (runtime)</th></tr>
+<tr><td>Same name, different parameters</td><td>Same signature in a subclass</td></tr>
+<tr><td>Resolved by the compiler</td><td>Resolved by the JVM at runtime</td></tr>
+<tr><td>Same class</td><td>Requires inheritance</td></tr>
+</table>
+<pre><code>// Overloading
+protected void click(By locator) { }
+protected void click(By locator, int timeoutSeconds) { }
+
+// Overriding
+public class CheckoutPage extends BasePage {
+    @Override
+    protected void click(By locator) {          // JS click for this stubborn page
+        ((JavascriptExecutor) driver).executeScript(
+            "arguments[0].click();", driver.findElement(locator));
+    }
+}</code></pre>
+<p>Runtime polymorphism is what makes <code>WebDriver driver = new ChromeDriver();</code> work — the reference type is the interface, the behaviour comes from the object.</p>`},
+
+{c:"java",q:"Which Java version do you use, and what do you use from it?",a:`
+<p>Java 17 is the current widely-adopted LTS (Java 21 is the next). Features that actually change test code:</p>
+<pre><code>// Text blocks (15+) — inline JSON payloads without escaping
+String payload = """
+    { "name": "Karthik", "role": "QA Lead" }
+    """;
+
+// var (10+)
+var wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+
+// Records (16+) — perfect for API response POJOs
+public record User(String id, String name, String role) {}
+
+// Switch expressions (14+)
+WebDriver driver = switch (browser) {
+    case "chrome"  -&gt; new ChromeDriver();
+    case "firefox" -&gt; new FirefoxDriver();
+    default -&gt; throw new FrameworkException("Unsupported browser: " + browser);
+};</code></pre>`},
+
+/* ============ SELENIUM ============ */
+{c:"selenium",q:"Where have you used OOPS concepts in Selenium?",a:`
+<p>All five pillars show up in a Page Object framework — that's what makes it modular, reusable and maintainable. Walk the interviewer through them in this order.</p>
+
+<p><strong>1. Class and Object</strong> — one class per page (LoginPage, HomePage, CartPage); test classes create objects of them and call their methods.</p>
+<pre><code>public class LoginPage {
+    WebDriver driver;
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+    }
+
+    public void login(String username, String password) {
+        driver.findElement(By.id("username")).sendKeys(username);
+        driver.findElement(By.id("password")).sendKeys(password);
+        driver.findElement(By.id("login")).click();
+    }
+}
+
+// In the test class
+LoginPage loginPage = new LoginPage(driver);
+loginPage.login("admin", "admin123");</code></pre>
+<p><em>Why:</em> organises the code by page and lets the same page object serve many test cases.</p>
+
+<p><strong>2. Inheritance</strong> — a BaseTest holds the setup and teardown every test needs; each test class extends it.</p>
+<pre><code>public class BaseTest {
+    WebDriver driver;
+
+    @BeforeMethod
+    public void setUp() { driver = new ChromeDriver(); }
+
+    @AfterMethod
+    public void tearDown() { driver.quit(); }
+}
+
+public class LoginTest extends BaseTest {
+    @Test
+    public void verifyLogin() {
+        new LoginPage(driver).login("admin", "admin123");
+    }
+}</code></pre>
+<p><em>Why:</em> removes duplicate setup code across 200 test classes and gives you one place to change it.</p>
+
+<p><strong>3. Encapsulation</strong> — locators and helpers stay private inside the page class; tests only touch public business methods.</p>
+<pre><code>public class LoginPage {
+    private WebDriver driver;
+    private By usernameField = By.id("username");
+
+    public LoginPage(WebDriver driver) { this.driver = driver; }
+
+    public void enterUsername(String username) {
+        driver.findElement(usernameField).sendKeys(username);
+    }
+}</code></pre>
+<p><em>Why:</em> hides implementation detail, so a locator change is a one-file fix and no test depends directly on the DOM.</p>
+
+<p><strong>4. Polymorphism</strong> — every browser driver implements the same WebDriver interface (runtime), and you overload helper methods for different signatures (compile time).</p>
+<pre><code>// Runtime — same reference type, different behaviour
+WebDriver driver;
+driver = new ChromeDriver();     // or
+driver = new FirefoxDriver();
+
+// Compile time — overloading
+protected void click(By locator) { }
+protected void click(By locator, int timeoutSeconds) { }</code></pre>
+<p><em>Why:</em> the same test code runs cross-browser with no changes beyond a config value.</p>
+
+<p><strong>5. Abstraction</strong> — utility and base methods hide the mechanics so tests read as business intent.</p>
+<pre><code>// Instead of repeating this everywhere
+driver.findElement(By.id("submit")).click();
+
+// The base class exposes
+public void clickElement(By locator) {
+    wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+}
+
+// And the test simply says
+clickElement(submitButton);</code></pre>
+<p><em>Why:</em> keeps test scripts clean and centralises the wait/retry logic — improve it once, every test benefits.</p>
+<div class="tip"><b>Lead angle</b>Don't just recite the four pillars. Name the file each one lives in, and the maintenance problem it solved — that's what separates someone who has built a framework from someone who has read about one.</div>`},
+
+{c:"selenium",q:"How do you handle dynamic elements and synchronisation in Selenium?",a:`
+<ul>
+<li><strong>Explicit waits</strong> — <code>WebDriverWait</code> + <code>ExpectedConditions</code> for the specific state you need.</li>
+<li><strong>FluentWait</strong> — custom polling interval and ignored exceptions for slow, jittery components.</li>
+<li><strong>Stable locators</strong> — relative XPath on stable attributes (<code>data-testid</code>), never absolute paths or index-based selectors.</li>
+<li><strong>App-aware waits</strong> — wait for the spinner to disappear or the AJAX call to settle, wrapped in a reusable utility.</li>
+<li><strong>Never</strong> <code>Thread.sleep()</code> — it's either too short (flaky) or too long (slow suite).</li>
+</ul>`},
+
+{c:"selenium",q:"Abstraction and interface in Selenium — give real examples.",a:`
+<p><strong>1. WebDriver is the textbook interface.</strong> ChromeDriver/FirefoxDriver implement it, so switching browsers costs zero test changes:</p>
+<pre><code>WebDriver driver = browser.equals("chrome")
+        ? new ChromeDriver()
+        : new FirefoxDriver();
+driver.get("https://example.com");</code></pre>
+<p>You call <code>get()</code> without knowing how each browser implements it — that's abstraction.</p>
+<p><strong>2. Custom interface for a swappable reporter:</strong></p>
+<pre><code>public interface ITestReporter {
+    void logStep(String message);
+    void logFailure(String message, String screenshotPath);
+}
+// ExtentReporter and AllureReporter implement it —
+// tests depend on the interface, so you swap tools without touching tests.</code></pre>
+<p><strong>3. Abstract class for BasePage</strong> — shared implemented helpers plus a contract every page must honour:</p>
+<pre><code>public abstract class BasePage {
+    protected WebDriver driver;
+    protected WebDriverWait wait;
+
+    public BasePage(WebDriver driver) {
+        this.driver = driver;
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+    }
+
+    protected void click(By locator) {
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+    }
+
+    public abstract boolean isPageLoaded();   // every page must define this
+}</code></pre>`},
+
+{c:"selenium",q:"How do you run Selenium tests in parallel safely?",a:`
+<p>TestNG handles the threading, your framework handles the isolation:</p>
+<pre><code>&lt;suite name="Regression" parallel="methods" thread-count="4"&gt;</code></pre>
+<ul>
+<li>ThreadLocal WebDriver — no shared driver, no static mutable state.</li>
+<li>Independent test data per thread (unique IDs), no test depending on another's output.</li>
+<li>Scale out with Selenium Grid / Selenoid / cloud providers rather than pushing thread count on one box.</li>
+<li>Thread-safe reporting — ExtentTest also needs ThreadLocal.</li>
+</ul>`},
+
+{c:"selenium",q:"Explain the Page Object Model and PageFactory. Any downsides?",a:`
+<p>POM keeps locators and page interactions in one class per page, so a UI change is a one-file fix. Methods should express business intent (<code>login()</code>), not mechanics (<code>clickButton()</code>).</p>
+<p><strong>PageFactory</strong> (<code>@FindBy</code> + <code>initElements</code>) reduces boilerplate through lazy proxies, but it's effectively deprecated in modern practice — it hides staleness issues and doesn't play well with dynamic SPAs. Many teams now prefer plain <code>By</code> locators.</p>
+<p><strong>Downsides of POM done badly:</strong> giant god-pages, assertions leaking into page classes (keep them in tests), and deep inheritance chains that nobody can trace.</p>`},
+
+{c:"selenium",q:"How do you handle windows, frames, alerts and shadow DOM?",a:`
+<pre><code>// Windows
+String parent = driver.getWindowHandle();
+for (String h : driver.getWindowHandles())
+    if (!h.equals(parent)) driver.switchTo().window(h);
+
+// Frames
+driver.switchTo().frame("frameName");
+driver.switchTo().defaultContent();
+
+// Alerts
+Alert alert = driver.switchTo().alert();
+alert.accept();
+
+// Shadow DOM (Selenium 4+)
+WebElement root = driver.findElement(By.cssSelector("my-widget"));
+root.getShadowRoot().findElement(By.cssSelector("input")).sendKeys("test");</code></pre>
+<p>Always switch back to <code>defaultContent()</code> after frame work, and wait for the frame/alert to be present rather than assuming.</p>`},
+
+{c:"selenium",q:"What's new in Selenium 4 that you actually use?",a:`
+<ul>
+<li><strong>W3C protocol</strong> by default — fewer cross-browser quirks.</li>
+<li><strong>Relative locators</strong> — <code>with(By.tagName("input")).toRightOf(label)</code>.</li>
+<li><strong>CDP access</strong> — network mocking, geolocation, console log capture, basic auth.</li>
+<li><strong>Native shadow DOM support</strong>.</li>
+<li><strong>Full-page screenshot / element screenshot</strong>.</li>
+<li><strong>Duration-based waits</strong> and cleaner Grid 4 (router/distributor/node, Docker-friendly).</li>
+</ul>`},
+
+{c:"selenium",q:"How do you generate customer/test data for Selenium tests?",a:`
+<p>Four sources, in order of preference:</p>
+<ul>
+<li><strong>API creation</strong> — the fastest and most reliable: create the customer through the service layer in setup, then drive the UI.</li>
+<li><strong>Faker</strong> — realistic random values for names, emails, addresses.</li>
+<li><strong>DB queries</strong> — pick an existing record matching required criteria (funded account, active policy).</li>
+<li><strong>External files</strong> — JSON/Excel for fixed business scenarios.</li>
+</ul>
+<pre><code>Faker faker = new Faker();
+String email = faker.internet().emailAddress();      // unique-ish
+String uniqueEmail = "qa+" + System.currentTimeMillis() + "@test.com"; // guaranteed
+
+// Create via API, then verify in UI
+String customerId = given().spec(authSpec)
+        .body(new Customer(faker.name().firstName(), uniqueEmail))
+        .post("/customers").jsonPath().getString("id");
+
+driver.get(BASE_URL + "/customers/" + customerId);</code></pre>
+<div class="tip"><b>Lead angle</b>Never depend on data someone created manually last quarter — a test that needs a hand-made record is a test that will fail in a fresh environment.</div>`},
+
+{c:"selenium",q:"What's your locator strategy and why?",a:`
+<p>Order of preference: <strong>ID → name → CSS selector → XPath</strong>, and relative locators when the DOM gives you nothing stable.</p>
+<ul>
+<li><strong>ID</strong> — fastest and most stable, if the devs provide it.</li>
+<li><strong>CSS</strong> — concise, fast, good for class/attribute combinations.</li>
+<li><strong>XPath</strong> — the only option for traversing up the tree or matching text; slowest and most brittle, so keep it relative.</li>
+<li><strong>Link text / partial link text</strong> — fine for stable navigation links, breaks with copy changes or localisation.</li>
+</ul>
+<pre><code>By.cssSelector("input[data-testid='username']");
+By.xpath("//tr[td[text()='Karthik']]//button[@title='Edit']");
+
+// Selenium 4 relative locators
+By.name("password") // or:
+RelativeLocator.with(By.tagName("input")).below(By.id("username"));</code></pre>
+<p>Validate in DevTools console before coding: <code>$$("css")</code> and <code>$x("//xpath")</code>. Never use absolute XPath or index-based paths — one new div breaks 40 tests.</p>`},
+
+{c:"selenium",q:"Implicit vs explicit vs fluent wait — and why not mix them?",a:`
+<pre><code>// Implicit — global, applies to every findElement, set once
+driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+// Explicit — condition-specific, the one you should use
+new WebDriverWait(driver, Duration.ofSeconds(15))
+    .until(ExpectedConditions.elementToBeClickable(By.id("submit")));
+
+// Fluent — explicit wait with tuned polling and ignored exceptions
+Wait&lt;WebDriver&gt; wait = new FluentWait&lt;&gt;(driver)
+    .withTimeout(Duration.ofSeconds(30))
+    .pollingEvery(Duration.ofMillis(500))
+    .ignoring(NoSuchElementException.class);</code></pre>
+<p>Common ExpectedConditions: <code>visibilityOfElementLocated</code>, <code>presenceOfElementLocated</code>, <code>elementToBeClickable</code>, <code>invisibilityOfElementLocated</code>, <code>alertIsPresent</code>, <code>titleContains</code>, <code>frameToBeAvailableAndSwitchToIt</code>.</p>
+<div class="tip"><b>Why not mix</b>Combining implicit and explicit waits produces unpredictable timeouts — the two mechanisms compound. Pick explicit waits and set implicit to zero.</div>`},
+
+{c:"selenium",q:"Where do you use a Set in Selenium?",a:`
+<p>Window and tab handles — they're unique by definition, so Selenium returns a Set:</p>
+<pre><code>String parent = driver.getWindowHandle();
+Set&lt;String&gt; handles = driver.getWindowHandles();
+
+for (String handle : handles) {
+    if (!handle.equals(parent)) {
+        driver.switchTo().window(handle);
+        break;
+    }
+}
+// ... work in the new window
+driver.close();
+driver.switchTo().window(parent);</code></pre>
+<p>The other common use is duplicate detection in table or API data: put a List into a HashSet and compare sizes.</p>`},
+
+{c:"selenium",q:"What is the Actions class and when do you need it?",a:`
+<p>Actions builds a chain of low-level user interactions — hover, drag, right-click, keyboard combinations — that plain <code>click()</code> and <code>sendKeys()</code> can't express.</p>
+<pre><code>Actions actions = new Actions(driver);
+
+actions.moveToElement(menu)                  // hover to open a dropdown
+       .click(submenuItem)
+       .build().perform();
+
+actions.dragAndDrop(source, target).perform();
+actions.contextClick(row).perform();          // right-click
+actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+actions.scrollToElement(footer).perform();    // Selenium 4.2+</code></pre>
+<p>Always end with <code>perform()</code> — <code>build()</code> alone just composes the action.</p>`},
+
+{c:"selenium",q:"When do you use JavascriptExecutor?",a:`
+<pre><code>JavascriptExecutor js = (JavascriptExecutor) driver;
+
+js.executeScript("arguments[0].scrollIntoView(true);", element);
+js.executeScript("arguments[0].click();", element);        // element covered by an overlay
+js.executeScript("arguments[0].value='QA';", inputField);  // bypasses keystrokes
+String state = (String) js.executeScript("return document.readyState;");</code></pre>
+<p>Legitimate uses: scrolling, reading page state, working around a sticky header that intercepts clicks, and generating screenshots of long pages.</p>
+<div class="tip"><b>Caution</b>A JS click bypasses what a real user experiences — it will happily "click" a disabled or invisible button and give you a false pass. Treat it as a workaround, and log why it was needed.</div>`},
+
+{c:"selenium",q:"How do you keep page objects maintainable as the app grows?",a:`
+<ul>
+<li><strong>One class per page or major component</strong> — a shared header/nav/modal becomes its own component class reused by many pages.</li>
+<li><strong>No assertions in page objects</strong> — pages return data or another page; tests assert.</li>
+<li><strong>Return types express flow</strong> — <code>login()</code> returns a DashboardPage, so navigation is compile-time checked.</li>
+<li><strong>Locators in one place per page</strong>, private, named after intent not markup.</li>
+<li><strong>Standards enforced in PR review</strong> — naming, no waits in tests, no driver calls outside pages.</li>
+</ul>
+<pre><code>public DashboardPage login(String user, String pass) {
+    type(usernameField, user);
+    type(passwordField, pass);
+    click(loginButton);
+    return new DashboardPage(driver);
+}</code></pre>`},
+
+{c:"selenium",q:"Which Selenium exceptions do you hit most, and how do you handle them?",a:`
+<ul>
+<li><strong>NoSuchElementException</strong> — locator wrong or element not rendered yet. Fix with an explicit wait, not a retry.</li>
+<li><strong>StaleElementReferenceException</strong> — the DOM re-rendered after you found the element. Re-find inside the wrapper method.</li>
+<li><strong>ElementClickInterceptedException</strong> — an overlay, cookie banner or sticky header is on top. Scroll, dismiss the banner, or JS-click.</li>
+<li><strong>ElementNotInteractableException</strong> — present but hidden/disabled. Wait for <code>elementToBeClickable</code>.</li>
+<li><strong>TimeoutException</strong> — the condition never became true; usually a genuine app bug or a wrong expectation.</li>
+<li><strong>InvalidSelectorException</strong> — malformed XPath/CSS syntax.</li>
+</ul>
+<pre><code>protected void safeClick(By locator) {
+    try {
+        wait.until(ExpectedConditions.elementToBeClickable(locator)).click();
+    } catch (StaleElementReferenceException e) {
+        driver.findElement(locator).click();   // re-find once, then let it fail
+    }
+}</code></pre>`},
+
+{c:"selenium",q:"How do you wire ExtentReports into the framework?",a:`
+<p>Reports are driven by listeners, never by test code, and the report object is thread-local for parallel runs.</p>
+<pre><code>public class ExtentManager {
+    private static ExtentReports extent;
+    private static ThreadLocal&lt;ExtentTest&gt; test = new ThreadLocal&lt;&gt;();
+
+    public static ExtentTest get() { return test.get(); }
+}
+
+public class TestListener implements ITestListener {
+    @Override public void onTestFailure(ITestResult result) {
+        ExtentManager.get()
+            .log(Status.FAIL, result.getThrowable())
+            .addScreenCaptureFromPath(ScreenshotUtil.capture(result.getName()));
+    }
+    @Override public void onTestSuccess(ITestResult result) {
+        ExtentManager.get().log(Status.PASS, "Passed");
+    }
+}</code></pre>
+<p>ExtentReports is the report; ExtentTest is one test node inside it. Flush the report in <code>@AfterSuite</code> or the HTML never gets written.</p>`},
+
+{c:"selenium",q:"How do you use Selenium Grid?",a:`
+<p>Grid separates where tests run from where they're written — one hub distributes sessions to nodes with different browsers and OS versions.</p>
+<pre><code>ChromeOptions options = new ChromeOptions();
+options.setPlatformName("Linux");
+
+WebDriver driver = new RemoteWebDriver(
+        new URL("http://grid-hub:4444/wd/hub"), options);</code></pre>
+<p>Grid 4 splits into router, distributor, session map and nodes, and runs cleanly in Docker (or Selenoid) so CI agents are identical to local. Combine <code>parallel="methods"</code> in testng.xml with enough nodes — thread count beyond node capacity just queues.</p>`},
+
+/* ============ PLAYWRIGHT ============ */
+{c:"playwright",q:"What makes Playwright different from Selenium?",a:`
+<p>Playwright talks to the browser over DevTools protocol rather than the WebDriver HTTP protocol — fewer hops, less flakiness. Practical differences:</p>
+<ul>
+<li><strong>Auto-waiting</strong> baked into every action.</li>
+<li><strong>Browser contexts</strong> — cheap isolation, parallel sessions in one browser.</li>
+<li><strong>Network interception</strong> and API mocking out of the box.</li>
+<li><strong>Built-in test runner</strong> with parallelism, retries, fixtures, reporters.</li>
+<li><strong>Trace Viewer</strong> — time-travel debugging with DOM snapshots.</li>
+</ul>
+<p>Selenium still wins on language/browser breadth and existing enterprise Grid infrastructure.</p>`},
+
+{c:"playwright",q:"Explain auto-waiting. Do you ever still need explicit waits?",a:`
+<p>Before every action Playwright waits for the element to be attached, visible, stable, enabled and able to receive events — up to the timeout. So <code>click()</code> rarely needs a preceding wait.</p>
+<p>Explicit waits remain useful for non-action conditions:</p>
+<pre><code>await expect(locator).toBeVisible();        // auto-retrying assertion
+await page.waitForResponse('**/api/users'); // network
+await page.waitForURL('**/dashboard');      // navigation</code></pre>
+<p><code>page.waitForTimeout()</code> is the Thread.sleep of Playwright — debugging only.</p>`},
+
+{c:"playwright",q:"What are browser contexts and how do you reuse login state?",a:`
+<p>A BrowserContext is an isolated incognito-like session inside one browser — separate cookies, storage and cache. It gives you parallel isolation cheaply and lets you run two users in one test (admin + customer).</p>
+<pre><code>// global setup: log in once
+await context.storageState({ path: 'auth.json' });
+
+// every test starts logged in
+const context = await browser.newContext({ storageState: 'auth.json' });</code></pre>
+<p>Skipping the login UI in every test is often the single biggest suite speed-up.</p>`},
+
+{c:"playwright",q:"How do Playwright locators work and what's the recommended strategy?",a:`
+<p>Locators are <strong>lazy</strong> — resolved at action time, so they survive re-renders and stale element errors mostly disappear.</p>
+<pre><code>page.getByRole('button', { name: 'Submit' })
+page.getByLabel('Email')
+page.getByText('Welcome back')
+page.getByTestId('checkout-btn')
+
+// chaining + filtering
+page.getByRole('row').filter({ hasText: 'Karthik' }).getByRole('button')</code></pre>
+<p>Priority: role/label/text (user-facing, survives refactors) → test id → CSS → XPath as last resort.</p>`},
+
+{c:"playwright",q:"How do you mock or intercept network calls?",a:`
+<pre><code>await page.route('**/api/products', route =&gt;
+  route.fulfill({ status: 200, body: JSON.stringify(mockData) })
+);
+
+// block third-party noise to speed up runs
+await page.route('**/*analytics*', route =&gt; route.abort());</code></pre>
+<p>Use it to force edge cases (empty state, 500 error, slow response) without backend setup, and <code>waitForResponse()</code> to spy on real calls and assert payloads.</p>`},
+
+{c:"playwright",q:"How do parallelism and retries work in Playwright Test?",a:`
+<p>Each test <em>file</em> runs in its own worker process by default; <code>fullyParallel: true</code> parallelises tests within a file too. Config drives it:</p>
+<pre><code>export default defineConfig({
+  workers: process.env.CI ? 4 : undefined,
+  fullyParallel: true,
+  retries: process.env.CI ? 2 : 0,
+  reporter: [['html'], ['junit', { outputFile: 'results.xml' }]],
+});</code></pre>
+<p>A test that passes on retry is reported as <strong>flaky</strong> — a first-class signal you can track. Split across CI machines with <code>--shard=1/4</code>.</p>`},
+
+{c:"playwright",q:"How do you debug a failing Playwright test?",a:`
+<ul>
+<li><strong>Trace Viewer</strong> — <code>trace: 'on-first-retry'</code>, then <code>npx playwright show-trace</code>: full timeline, DOM snapshots, network, console.</li>
+<li><strong>UI Mode</strong> — <code>npx playwright test --ui</code> for time-travel + watch mode.</li>
+<li><strong>Inspector</strong> — <code>--debug</code> to step through actions and pick locators.</li>
+<li><strong>Artifacts</strong> — <code>screenshot: 'only-on-failure'</code>, <code>video: 'retain-on-failure'</code>, published from CI.</li>
+</ul>`},
+
+{c:"playwright",q:"What are fixtures, and how do they beat beforeEach hooks?",a:`
+<pre><code>export const test = base.extend({
+  loggedInPage: async ({ page }, use) =&gt; {
+    await page.goto('/login');
+    await loginAs(page, 'admin');
+    await use(page);       // test body runs here
+    await logout(page);    // teardown
+  },
+});</code></pre>
+<p>Fixtures are <strong>lazy</strong> (only run when a test asks for them), composable, and shareable across projects. Hooks run for every test in the file whether needed or not, and don't compose.</p>`},
+
+{c:"playwright",q:"How would you migrate a large Selenium suite to Playwright?",a:`
+<p>Don't rewrite line-for-line, and don't stop the world:</p>
+<ul>
+<li><strong>Pilot</strong> — migrate one high-value, high-flake suite first and measure runtime + stability against Selenium.</li>
+<li><strong>Run in parallel</strong> for a release or two; Playwright is advisory until it proves stable.</li>
+<li><strong>Rebuild, don't port</strong> — drop explicit waits, replace XPath with role/testid locators, replace UI login with storageState.</li>
+<li><strong>Keep the layer boundaries</strong> — page objects and test data utilities usually survive the move conceptually.</li>
+<li><strong>Skill the team</strong> — JS/TS ramp-up is the real cost, not the API.</li>
+</ul>
+<div class="tip"><b>Lead angle</b>Have a stop condition: if the pilot doesn't beat the old suite on runtime and flake rate, you don't migrate.</div>`},
+
+/* ============ CUCUMBER / BDD ============ */
+{c:"cucumber",q:"Scenario vs Scenario Outline?",a:`
+<p>A <strong>Scenario</strong> runs once. A <strong>Scenario Outline</strong> is a template run once per row of its Examples table — the BDD equivalent of a DataProvider.</p>
+<pre><code>Scenario: Valid login
+  Given the user is on the login page
+  When the user logs in with "admin" and "admin123"
+  Then the dashboard is displayed
+
+Scenario Outline: Login validation
+  Given the user is on the login page
+  When the user logs in with "&lt;username&gt;" and "&lt;password&gt;"
+  Then the message "&lt;message&gt;" is displayed
+
+  Examples:
+    | username | password  | message              |
+    | admin    | wrongpass | Invalid credentials  |
+    |          | admin123  | Username is required |</code></pre>`},
+
+{c:"cucumber",q:"How do you pass test data in Cucumber?",a:`
+<ul>
+<li><strong>Inline parameters</strong> in the step text — simplest.</li>
+<li><strong>Examples table</strong> with Scenario Outline — same steps, many data sets.</li>
+<li><strong>DataTable</strong> — structured data for one step.</li>
+<li><strong>External source</strong> — the feature carries a key, the step definition looks the data up in JSON/Excel/DB. Best for large or sensitive data.</li>
+</ul>
+<pre><code>When the user registers with the following details
+  | firstName | lastName | email             |
+  | Karthik   | S        | qa@test.com       |</code></pre>
+<pre><code>@When("the user registers with the following details")
+public void register(DataTable table) {
+    List&lt;Map&lt;String, String&gt;&gt; rows = table.asMaps(String.class, String.class);
+    registerPage.register(rows.get(0).get("firstName"), rows.get(0).get("email"));
+}</code></pre>
+<div class="tip"><b>Keep it readable</b>Feature files are for business readers. Passwords, tokens and 20-column tables belong in a data file, not in Gherkin.</div>`},
+
+{c:"cucumber",q:"How is a Cucumber project structured?",a:`
+<pre><code>src/test/resources/features/login.feature       # Gherkin
+src/test/java/stepdefs/LoginSteps.java          # glue code
+src/test/java/hooks/Hooks.java                  # @Before / @After
+src/test/java/runners/TestRunner.java           # entry point</code></pre>
+<pre><code>@CucumberOptions(
+    features = "src/test/resources/features",
+    glue     = {"stepdefs", "hooks"},
+    tags     = "@smoke and not @wip",
+    plugin   = {"pretty", "html:target/cucumber.html",
+                "json:target/cucumber.json"},
+    monochrome = true
+)
+public class TestRunner extends AbstractTestNGCucumberTests {
+    @Override
+    @DataProvider(parallel = true)
+    public Object[][] scenarios() { return super.scenarios(); }
+}</code></pre>
+<p>Step definitions stay thin — they call page objects, they don't contain locators or waits.</p>`},
+
+{c:"cucumber",q:"Background vs Hooks (@Before / @After)?",a:`
+<p><strong>Background</strong> is Gherkin — business steps repeated before every scenario in a feature, visible to readers. <strong>Hooks</strong> are Java — technical setup and teardown that shouldn't clutter the feature file.</p>
+<pre><code>Background:
+  Given the user is logged in as an administrator</code></pre>
+<pre><code>public class Hooks {
+    @Before("@ui")
+    public void setUp() { DriverFactory.set(new ChromeDriver()); }
+
+    @After
+    public void tearDown(Scenario scenario) {
+        if (scenario.isFailed()) {
+            byte[] shot = ((TakesScreenshot) DriverFactory.get())
+                    .getScreenshotAs(OutputType.BYTES);
+            scenario.attach(shot, "image/png", scenario.getName());
+        }
+        DriverFactory.unload();
+    }
+}</code></pre>
+<p>Rule: if a business stakeholder would care about it, it's a Background step; if it's driver or database plumbing, it's a hook.</p>`},
+
+{c:"cucumber",q:"Is BDD worth it? When would you not use Cucumber?",a:`
+<p>BDD pays off when business analysts and developers genuinely write and read the scenarios — shared language, living documentation, requirements clarified before coding.</p>
+<p>It costs you an extra glue layer, slower authoring, and a maintenance burden nobody mentions upfront. If only QA ever opens the feature files, you've paid the cost for none of the benefit — plain TestNG or JUnit tests will be faster to write and easier to debug.</p>
+<div class="tip"><b>Lead angle</b>The honest answer in an interview: I've used Cucumber where the three amigos process was real, and dropped it where the feature files had become a translation layer written by testers, for testers.</div>`},
+
+/* ============ API TESTING ============ */
+{c:"manual",q:"What is an API, and what makes up a request and a response?",a:`
+<p>An API is a contract between two systems — the client sends a structured request, the server returns a structured response. Everything you test lives in one of those two envelopes.</p>
+<pre><code>REQUEST
+  Method + URL   POST https://api.app.com/v1/bookings
+  Headers        Content-Type, Authorization, Accept
+  Params         path (/bookings/101) and query (?status=ACTIVE)
+  Body           JSON payload (POST/PUT/PATCH only)
+
+RESPONSE
+  Status line    HTTP/1.1 201 Created
+  Headers        Content-Type, Location, ETag, rate-limit info
+  Body           JSON — the created/requested resource, or an error object
+  Timing         how long the round trip took</code></pre>
+<div class="tip"><b>Framing</b>Every API test case is just: "given this request, what should come back in each of those four parts?" If you can articulate it that way, the test cases write themselves.</div>`},
+
+{c:"manual",q:"Walk me through the HTTP methods and what each is for.",a:`
+<table>
+<tr><th>Method</th><th>Purpose</th><th>Body</th><th>Typical success code</th></tr>
+<tr><td>GET</td><td>Read a resource or collection</td><td>No</td><td>200 OK</td></tr>
+<tr><td>POST</td><td>Create a new resource, or trigger an action</td><td>Yes</td><td>201 Created / 200</td></tr>
+<tr><td>PUT</td><td>Replace a resource entirely</td><td>Yes</td><td>200 / 204</td></tr>
+<tr><td>PATCH</td><td>Partially update a resource</td><td>Yes</td><td>200 / 204</td></tr>
+<tr><td>DELETE</td><td>Remove a resource</td><td>Usually no</td><td>204 No Content / 200</td></tr>
+<tr><td>HEAD</td><td>Same as GET but headers only — existence and size checks</td><td>No</td><td>200</td></tr>
+<tr><td>OPTIONS</td><td>Which methods the endpoint allows; CORS preflight</td><td>No</td><td>200 / 204</td></tr>
+</table>
+<pre><code>GET    /bookings?firstname=Karthik   # filter a collection
+GET    /bookings/101                 # one resource
+POST   /bookings                     # create -> returns 201 + Location header
+PUT    /bookings/101                 # full replace
+PATCH  /bookings/101                 # change one field
+DELETE /bookings/101                 # remove</code></pre>
+<div class="tip"><b>Say this</b>The method is a contract, not a preference. An API that creates records on a GET has a design defect worth raising, regardless of whether it works.</div>`},
+
+{c:"manual",q:"PUT vs PATCH — and how do you test the difference?",a:`
+<p><strong>PUT replaces the whole resource.</strong> Any field you omit is typically reset to null or its default. <strong>PATCH updates only what you send</strong>; everything else stays untouched.</p>
+<pre><code>// Existing record
+{ "firstname": "Karthik", "lastname": "S", "totalprice": 500, "deposit": true }
+
+// PUT with a partial body — the omitted fields are wiped
+PUT /booking/101
+{ "firstname": "Karthik" }
+-&gt; { "firstname": "Karthik", "lastname": null, "totalprice": null, "deposit": null }
+
+// PATCH with the same body — only firstname changes
+PATCH /booking/101
+{ "firstname": "Karthik" }
+-&gt; { "firstname": "Karthik", "lastname": "S", "totalprice": 500, "deposit": true }</code></pre>
+<p><strong>The test:</strong> GET the record first, send a partial PUT, GET again and assert the untouched fields. If they survived, the API is behaving like PATCH under a PUT label — a real defect that slips through constantly because the status code is still 200.</p>`},
+
+{c:"manual",q:"What does idempotent mean, and which methods are idempotent?",a:`
+<p><strong>Idempotent</strong> — sending the same request N times leaves the server in the same state as sending it once. <strong>Safe</strong> — the request doesn't change state at all.</p>
+<table>
+<tr><th>Method</th><th>Safe</th><th>Idempotent</th></tr>
+<tr><td>GET, HEAD, OPTIONS</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>PUT</td><td>No</td><td>Yes — same replacement each time</td></tr>
+<tr><td>DELETE</td><td>No</td><td>Yes — gone stays gone (2nd call gives 404/204)</td></tr>
+<tr><td>POST</td><td>No</td><td>No — creates a new record each time</td></tr>
+<tr><td>PATCH</td><td>No</td><td>Not necessarily — depends on the operation</td></tr>
+</table>
+<p>PATCH is idempotent if it sets a value (<code>status = "APPROVED"</code>) and not idempotent if it increments one (<code>balance += 100</code>).</p>
+<div class="tip"><b>Why it matters</b>It's the whole reason retries are dangerous on POST. Fire the same payment POST twice on a network timeout and you've double-charged the customer — which is why real APIs use an idempotency key header. Ask about it in the interview; it shows payments experience.</div>`},
+
+{c:"manual",q:"Explain HTTP status codes — the families and the ones you see daily.",a:`
+<table>
+<tr><th>Range</th><th>Meaning</th><th>Common codes</th></tr>
+<tr><td>1xx</td><td>Informational</td><td>100 Continue — rarely seen in testing</td></tr>
+<tr><td>2xx</td><td>Success</td><td>200 OK, 201 Created, 202 Accepted, 204 No Content</td></tr>
+<tr><td>3xx</td><td>Redirection</td><td>301 Moved Permanently, 302 Found, 304 Not Modified</td></tr>
+<tr><td>4xx</td><td>Client error — your request is wrong</td><td>400, 401, 403, 404, 405, 409, 415, 422, 429</td></tr>
+<tr><td>5xx</td><td>Server error — the request was fine, the server broke</td><td>500, 502, 503, 504</td></tr>
+</table>
+<ul>
+<li><strong>400</strong> Bad Request — malformed JSON, missing required field.</li>
+<li><strong>405</strong> Method Not Allowed — right URL, wrong verb.</li>
+<li><strong>409</strong> Conflict — duplicate email, version mismatch.</li>
+<li><strong>415</strong> Unsupported Media Type — wrong Content-Type header.</li>
+<li><strong>422</strong> Unprocessable Entity — valid JSON, invalid business data (age = -5).</li>
+<li><strong>429</strong> Too Many Requests — rate limit hit.</li>
+<li><strong>502 / 503 / 504</strong> — bad gateway, service unavailable, gateway timeout: usually infrastructure, not the endpoint.</li>
+</ul>
+<div class="tip"><b>Defect triage</b>4xx means raise it with whoever wrote the client or the test. 5xx is always a server-side defect — even if you sent garbage, the API should return 400, not blow up.</div>`},
+
+{c:"manual",q:"401 vs 403 vs 404 — and 400 vs 422?",a:`
+<p><strong>401 Unauthorized</strong> — authentication missing, expired or invalid. The server doesn't know who you are. Correct response includes a <code>WWW-Authenticate</code> header.</p>
+<p><strong>403 Forbidden</strong> — authentication succeeded, authorisation failed. The server knows exactly who you are and is refusing. Re-sending credentials won't help.</p>
+<p><strong>404 Not Found</strong> — the resource doesn't exist. Some APIs deliberately return 404 instead of 403 so attackers can't discover which record IDs exist.</p>
+<pre><code>No token          -&gt; 401
+Expired token     -&gt; 401
+Valid token, but a read-only user calling DELETE -&gt; 403
+Valid admin token, ID that doesn't exist         -&gt; 404</code></pre>
+<p><strong>400 vs 422:</strong> 400 is a syntax problem — the server couldn't parse the request. 422 is a semantic problem — it parsed fine, but the values fail business validation.</p>
+<div class="tip"><b>Interview trap</b>They'll describe a scenario and ask which code you'd expect. The tell is whether the server identified the caller: unknown caller = 401, known-but-refused = 403.</div>`},
+
+{c:"manual",q:"What are the core principles of REST?",a:`
+<ul>
+<li><strong>Client–server</strong> — UI and data storage evolve independently.</li>
+<li><strong>Stateless</strong> — every request carries everything needed; the server holds no session between calls. This is why the token goes on <em>every</em> request.</li>
+<li><strong>Uniform interface</strong> — resources as nouns in the URL, standard HTTP verbs for the actions.</li>
+<li><strong>Cacheable</strong> — responses declare whether they can be cached (ETag, Cache-Control).</li>
+<li><strong>Layered system</strong> — the client can't tell whether it's hitting the server directly or a gateway/load balancer.</li>
+<li><strong>Code on demand</strong> (optional, rarely used).</li>
+</ul>
+<pre><code>Good:  GET  /customers/101/orders
+Bad:   GET  /getCustomerOrders?id=101      # verb in the URL
+Bad:   POST /customers/101/delete          # verb in the URL again</code></pre>
+<div class="tip"><b>Testing angle</b>Statelessness is directly testable: fire two requests in any order, in parallel, from different clients — if the second one depends on the first having been made, the API isn't stateless and it won't survive load balancing.</div>`},
+
+{c:"manual",q:"REST vs SOAP vs GraphQL?",a:`
+<table>
+<tr><th></th><th>REST</th><th>SOAP</th><th>GraphQL</th></tr>
+<tr><td>Format</td><td>Usually JSON</td><td>XML only</td><td>JSON</td></tr>
+<tr><td>Contract</td><td>OpenAPI/Swagger (optional)</td><td>WSDL (strict)</td><td>Schema (strict, typed)</td></tr>
+<tr><td>Endpoints</td><td>Many, one per resource</td><td>One, action in the envelope</td><td>One, query defines the shape</td></tr>
+<tr><td>Testing focus</td><td>Verbs, status codes, JSON body</td><td>Envelope structure, XSD, faults</td><td>Query/mutation, partial errors</td></tr>
+</table>
+<p>SOAP still appears in enterprise and financial systems for its built-in standards — WS-Security, transactions, guaranteed contract via WSDL. GraphQL solves over-fetching by letting the client ask for exactly the fields it needs.</p>
+<div class="tip"><b>GraphQL gotcha</b>It returns <strong>200 OK even on failure</strong>, with the problem inside an <code>errors</code> array in the body. A test that only asserts the status code will pass on every broken query.</div>`},
+
+{c:"manual",q:"What do you validate in an API test beyond the status code?",a:`
+<ul>
+<li><strong>Status code</strong> — and that it's the <em>right</em> one: 201 for a create, not a lazy 200.</li>
+<li><strong>Response body values</strong> — the data you sent came back, IDs generated, calculated fields correct.</li>
+<li><strong>Schema and data types</strong> — field present, correct type, required fields non-null, enums within range.</li>
+<li><strong>Headers</strong> — Content-Type, Location on a create, caching headers, security headers.</li>
+<li><strong>Response time</strong> — against the agreed SLA, not a vibe.</li>
+<li><strong>Persistence</strong> — GET it back, or check the DB. A 201 does not prove it was saved.</li>
+<li><strong>Error contract</strong> — failures return a structured, readable message with a code, not a stack trace.</li>
+<li><strong>No data leakage</strong> — password hashes, internal IDs and PII should not be in the response.</li>
+</ul>
+<div class="tip"><b>Say this</b>The single most common weak API suite is one that asserts 200 and nothing else. It goes green while the payload silently returns an empty array.</div>`},
+
+{c:"manual",q:"Positive vs negative API testing — give me the scenarios you'd write.",a:`
+<p><strong>Positive:</strong> valid payload, valid auth, expected data returned, expected status code, record actually persisted.</p>
+<p><strong>Negative — the ones that find bugs:</strong></p>
+<ul>
+<li><strong>Missing required field</strong> — expect 400, not 500.</li>
+<li><strong>Wrong data type</strong> — string where a number is expected.</li>
+<li><strong>Malformed JSON</strong> — a trailing comma or unclosed brace.</li>
+<li><strong>Boundary values</strong> — empty string, 0, negative numbers, max length + 1, huge payload.</li>
+<li><strong>Auth cases</strong> — no token, expired token, malformed token, another user's token (that last one is the real security test).</li>
+<li><strong>Non-existent resource ID</strong> — expect 404, and no stack trace.</li>
+<li><strong>Wrong HTTP method</strong> on a valid URL — expect 405.</li>
+<li><strong>Wrong Content-Type</strong> — expect 415.</li>
+<li><strong>Duplicate create</strong> — expect 409, not a second record.</li>
+<li><strong>Special characters and injection strings</strong> in text fields.</li>
+</ul>
+<div class="tip"><b>Lead angle</b>Any 5xx during negative testing is a defect by definition. The API should reject bad input gracefully, and the error message should help the caller without exposing internals.</div>`},
+
+{c:"manual",q:"What authentication methods have you tested, and what do you check for each?",a:`
+<table>
+<tr><th>Type</th><th>How it's sent</th></tr>
+<tr><td>API Key</td><td>Header (<code>x-api-key</code>) or query param — query params leak into logs, worth raising</td></tr>
+<tr><td>Basic Auth</td><td><code>Authorization: Basic base64(user:pass)</code> — encoded, not encrypted</td></tr>
+<tr><td>Bearer / JWT</td><td><code>Authorization: Bearer eyJhbGci...</code></td></tr>
+<tr><td>OAuth 2.0</td><td>Token fetched from an auth server, then sent as Bearer</td></tr>
+<tr><td>Session / cookie</td><td>Cookie header — common where an API backs a web UI</td></tr>
+</table>
+<p><strong>What to test for every one of them:</strong> valid credentials pass; missing, expired, malformed and revoked credentials all return 401; a valid token for a <em>different</em> user cannot read or modify this user's data; a low-privilege token gets 403 on privileged endpoints; and the refresh flow issues a working token.</p>
+<pre><code>// A JWT is three base64 segments: header.payload.signature
+// The payload is readable by anyone — decode it and check
+// exp (expiry), roles and user id are what you expect.
+// Never treat "it's a token" as "it's encrypted".</code></pre>`},
+
+{c:"manual",q:"Which request and response headers matter when you're testing?",a:`
+<p><strong>Request headers:</strong></p>
+<ul>
+<li><code>Content-Type</code> — the format you are <em>sending</em> (<code>application/json</code>).</li>
+<li><code>Accept</code> — the format you want <em>back</em>. Different header, constantly confused.</li>
+<li><code>Authorization</code> — credentials.</li>
+<li><code>Correlation-Id</code> / <code>X-Request-Id</code> — trace one call across microservices; invaluable for defect reports.</li>
+</ul>
+<p><strong>Response headers:</strong></p>
+<ul>
+<li><code>Content-Type</code> — confirm it matches what the body actually is.</li>
+<li><code>Location</code> — the URL of the newly created resource on a 201.</li>
+<li><code>ETag</code> / <code>Cache-Control</code> — caching and conditional requests.</li>
+<li><code>X-RateLimit-Remaining</code> / <code>Retry-After</code> — throttling.</li>
+<li>Security: <code>Strict-Transport-Security</code>, <code>X-Content-Type-Options</code>, and <code>Access-Control-Allow-Origin</code> — a wildcard <code>*</code> on an authenticated API is worth flagging.</li>
+</ul>
+<div class="tip"><b>Quick win</b>Send a valid JSON body with <code>Content-Type: text/plain</code>. A well-built API returns 415. A surprising number return 500 — that's a bug you found in thirty seconds.</div>`},
+
+{c:"manual",q:"Walk me through how you test an API manually in Postman.",a:`
+<ol>
+<li><strong>Read the contract first</strong> — Swagger/OpenAPI: endpoints, required fields, types, auth, expected codes. Import it straight into Postman to generate the requests.</li>
+<li><strong>Set up an environment</strong> — <code>{{baseUrl}}</code>, <code>{{token}}</code>, <code>{{userId}}</code> as variables so the same collection runs against QA, UAT and prod-like.</li>
+<li><strong>Auth once</strong> — a login request with a test script that saves the token into an environment variable, so every later request reuses it.</li>
+<li><strong>Build the CRUD chain</strong> — POST creates and saves the ID, GET verifies persistence, PUT/PATCH updates, GET confirms the change, DELETE removes, final GET returns 404.</li>
+<li><strong>Add assertions</strong> in the Tests tab — status code, schema, key values, response time.</li>
+<li><strong>Run negative cases</strong> — the list from the negative-testing question.</li>
+<li><strong>Run the collection</strong> with Collection Runner + a CSV/JSON data file for data-driven checks.</li>
+<li><strong>Hand it to CI</strong> — export and run with Newman, or port the coverage into Rest Assured.</li>
+</ol>
+<pre><code>// Postman test script — save the token for the next request
+pm.test("Login succeeds", () =&gt; pm.response.to.have.status(200));
+pm.environment.set("token", pm.response.json().token);
+
+// Typical assertions
+pm.test("Status 201", () =&gt; pm.response.to.have.status(201));
+pm.test("Under 2s",   () =&gt; pm.expect(pm.response.responseTime).to.be.below(2000));
+pm.test("Has id",     () =&gt; pm.expect(pm.response.json()).to.have.property('id'));</code></pre>
+<div class="tip"><b>Lead angle</b>Manual Postman work isn't throwaway. Structure the collection so it becomes the specification for the automated suite — chained, variable-driven, environment-agnostic.</div>`},
+
+{c:"manual",q:"There's no documentation for the API. How do you test it?",a:`
+<p>It happens more often than anyone admits. In order:</p>
+<ul>
+<li><strong>Watch the UI</strong> — open DevTools Network tab, drive the feature, and copy the real calls (right-click → copy as cURL, import into Postman). That gives you real URLs, headers and payloads immediately.</li>
+<li><strong>Probe the endpoint</strong> — <code>OPTIONS</code> tells you which methods are allowed; a deliberately empty POST usually returns a validation error listing the required fields.</li>
+<li><strong>Read the code or the contract file</strong> — controllers, route definitions, or an unpublished swagger endpoint (many services expose one at /swagger or /v3/api-docs).</li>
+<li><strong>Check logs and the DB schema</strong> — column names and constraints tell you the field types and what's mandatory.</li>
+<li><strong>Ask the developer once, precisely</strong> — bring your inferred contract and ask them to correct it rather than asking them to write documentation.</li>
+</ul>
+<div class="tip"><b>Lead angle</b>Then write the contract down and get it reviewed. Turning an undocumented API into a documented one is the real deliverable — the tests are a by-product.</div>`},
+
+{c:"manual",q:"How do you test asynchronous APIs, callbacks and webhooks?",a:`
+<p>Async endpoints return <strong>202 Accepted</strong> with a job or correlation id — the work isn't done yet, so asserting the final outcome on that response is the classic mistake.</p>
+<pre><code>POST /reports          -&gt; 202 Accepted  { "jobId": "abc123", "status": "PENDING" }
+GET  /reports/abc123   -&gt; 200 { "status": "PROCESSING" }
+GET  /reports/abc123   -&gt; 200 { "status": "COMPLETE", "url": "..." }</code></pre>
+<ul>
+<li><strong>Poll with a timeout</strong> — repeat the status GET at an interval until it's terminal or the deadline passes. Never a fixed sleep.</li>
+<li><strong>Test the failure path</strong> — a job that fails should end in a FAILED status with a reason, not hang in PENDING forever.</li>
+<li><strong>Webhooks</strong> — stand up a receiver (a test endpoint, or a service like webhook.site during manual testing), trigger the event, and assert the payload, signature header and delivery timing.</li>
+<li><strong>Retries and duplicates</strong> — most webhook providers deliver at-least-once, so verify the consumer is idempotent and handles the same event twice.</li>
+<li><strong>Queue-backed flows</strong> — verify the message actually landed on the queue or topic, not just that the API returned 202.</li>
+</ul>`},
+
+{c:"manual",q:"How would you test rate limiting, pagination and timeouts?",a:`
+<p><strong>Rate limiting:</strong> fire requests past the documented threshold and confirm a <code>429</code>, check <code>X-RateLimit-Remaining</code> decrements accurately, confirm <code>Retry-After</code> is present, and verify access is restored after the window resets. Also check the limit is per-user or per-key, not global — a shared limit means one client can starve everyone.</p>
+<p><strong>Pagination:</strong></p>
+<pre><code>GET /orders?page=1&amp;size=20
+GET /orders?offset=0&amp;limit=20</code></pre>
+<ul>
+<li>Page size honoured; total count and total pages correct.</li>
+<li>No duplicate or missing records across page boundaries.</li>
+<li>Out-of-range page returns an empty list, not an error or the last page.</li>
+<li>Invalid values — <code>size=0</code>, <code>size=-1</code>, <code>size=999999</code> — handled sensibly.</li>
+<li>Sort order stable across pages, otherwise records shuffle between requests.</li>
+</ul>
+<p><strong>Timeouts:</strong> confirm the client timeout is shorter than the gateway timeout, that a slow downstream returns 504 rather than hanging, and that a timed-out create didn't actually create the record server-side — the classic duplicate-order bug.</p>`},
+
+{c:"manual",q:"What security checks do you run as part of normal API testing?",a:`
+<p>Not a penetration test — these are the checks a QA lead should own as routine:</p>
+<ul>
+<li><strong>Broken object-level authorisation</strong> — log in as user A, call a resource belonging to user B by changing the id in the URL. Expect 403 or 404. This is the single most common serious API defect.</li>
+<li><strong>Privilege escalation</strong> — a standard user calling admin endpoints, or sending <code>"role": "ADMIN"</code> in a profile update payload and seeing whether the server accepts it.</li>
+<li><strong>Token handling</strong> — expired and revoked tokens rejected; logout actually invalidates; token not accepted after a password change.</li>
+<li><strong>Data exposure</strong> — no password hashes, internal ids, stack traces or full PII in responses or error messages.</li>
+<li><strong>Transport</strong> — HTTPS enforced, HTTP redirected or refused; no credentials in query strings (they end up in logs and browser history).</li>
+<li><strong>Injection strings</strong> in text fields — the response should be a clean validation error, never a database error message.</li>
+</ul>
+<div class="tip"><b>Lead angle</b>Frame these as regression tests, not a security audit. They're cheap, they run every build, and they catch the class of bug the UI can never reveal because the button was simply hidden.</div>`},
+
+{c:"manual",q:"How do you validate that an API call actually persisted the data?",a:`
+<p>A 201 means the request was accepted, not that the record is correct or complete. Three levels of confirmation, in increasing strength:</p>
+<ul>
+<li><strong>Read-back</strong> — GET the resource by the id from the create response and compare every field you sent. This is the default and covers most cases.</li>
+<li><strong>Database check</strong> — query the table directly for fields the API doesn't return: audit columns, status flags, foreign keys, soft-delete markers. Essential when the API hides part of the record.</li>
+<li><strong>Downstream check</strong> — confirm the event reached the next system (queue, reporting table, partner feed) when the business flow spans services.</li>
+</ul>
+<pre><code>-- Typical post-create DB assertion
+SELECT status, created_by, is_deleted
+FROM   bookings
+WHERE  booking_id = ?;</code></pre>
+<div class="tip"><b>Caution</b>Keep DB assertions to verification only, never setup. Tests that insert rows directly bypass business logic and pass while the real API is broken.</div>`},
+
+{c:"manual",q:"Why test at the API layer at all when there's a UI suite?",a:`
+<ul>
+<li><strong>Speed</strong> — roughly 10× faster than the equivalent UI test, so regression drops from hours to minutes.</li>
+<li><strong>Stability</strong> — no locators, no rendering, no waits. Most flakiness lives in the browser layer.</li>
+<li><strong>Earlier feedback</strong> — the API is usually ready weeks before the screens, so testing can start before there's a UI to click.</li>
+<li><strong>Better coverage</strong> — you can hit error paths, boundary values and permission combinations the UI physically prevents you from sending.</li>
+<li><strong>Security-relevant</strong> — the UI hides a delete button from a read-only user; only an API test proves the server actually refuses the call.</li>
+<li><strong>Setup for UI tests</strong> — create the customer, policy or order via API in seconds instead of clicking through six screens.</li>
+</ul>
+<div class="tip"><b>Lead angle</b>Frame it as the middle of the test pyramid. UI tests should only cover what genuinely needs a browser — rendering, navigation, real user journeys. Everything else belongs one layer down, and moving it there is usually the single biggest regression-time win available.</div>`},
+
+/* ============ RESTASSURED ============ */
+{c:"api",q:"How do you validate an API end-to-end with Rest Assured?",a:`
+<p>Check status code, headers, body, schema and response time — not just 200 OK:</p>
+<pre><code>given()
+    .header("Authorization", "Bearer " + token)
+    .contentType(ContentType.JSON)
+    .body(payload)
+.when()
+    .post("/users")
+.then()
+    .statusCode(201)
+    .body("name", equalTo("Karthik"))
+    .body("id", notNullValue())
+    .body(matchesJsonSchemaInClasspath("user-schema.json"))
+    .time(lessThan(2000L));</code></pre>
+<p>Then chain: create → GET to confirm persistence → PUT → DELETE → GET returns 404. That's the real end-to-end contract.</p>`},
+
+{c:"api",q:"How do you handle authentication (OAuth2, tokens) in Rest Assured?",a:`
+<p>Fetch the token once in suite setup, cache it, inject it via a spec:</p>
+<pre><code>RequestSpecification authSpec = new RequestSpecBuilder()
+        .setBaseUri(config.get("baseUri"))
+        .setContentType(ContentType.JSON)
+        .addHeader("Authorization", "Bearer " + TokenManager.get())
+        .build();
+
+given().spec(authSpec).when().get("/orders").then().statusCode(200);</code></pre>
+<p>Rest Assured also has <code>.auth().oauth2(token)</code>, <code>.basic()</code>, <code>.preemptive()</code>. Credentials come from environment variables or a vault — never from the repo. Handle expiry with a refresh check inside TokenManager.</p>`},
+
+{c:"api",q:"RequestSpecification vs ResponseSpecification — why bother?",a:`
+<p>They remove duplication and make suites consistent. Request spec centralises base URI, headers, auth, logging filters. Response spec centralises common assertions:</p>
+<pre><code>ResponseSpecification okSpec = new ResponseSpecBuilder()
+        .expectStatusCode(200)
+        .expectContentType(ContentType.JSON)
+        .expectResponseTime(lessThan(3000L))
+        .build();
+
+given().spec(authSpec).get("/users").then().spec(okSpec);</code></pre>
+<p>Change the base URI or add a header in one place instead of 200 tests.</p>`},
+
+{c:"api",q:"How do you serialise and deserialise POJOs, and why prefer it over raw JSON strings?",a:`
+<pre><code>// Serialise: POJO -&gt; request body
+User user = new User("Karthik", "QA Lead");
+given().body(user)...          // Jackson/Gson handles conversion
+
+// Deserialise: response -&gt; POJO
+User created = response.as(User.class);
+assertEquals(created.getRole(), "QA Lead");</code></pre>
+<p>POJOs give compile-time safety, IDE autocomplete, and refactor support — a renamed field breaks the build rather than failing mysteriously at runtime. Raw strings are fine only for quick negative payloads (malformed JSON tests).</p>`},
+
+{c:"api",q:"JsonPath assertions vs JSON schema validation — when do you use each?",a:`
+<p><strong>JsonPath</strong> checks values: <code>response.jsonPath().getString("data[0].id")</code>, filters like <code>data.findAll { it.status == 'ACTIVE' }.size()</code>. Use for business assertions.</p>
+<p><strong>Schema validation</strong> checks structure and types — field presence, data types, required fields, enum values. Use it as a contract test so a backend change to a field type fails fast, in every test, without writing per-field assertions.</p>
+<p>In practice: schema for the contract, JsonPath for the specific business outcome.</p>`},
+
+{c:"api",q:"How do you test file upload/download, and chain dependent requests?",a:`
+<pre><code>// Multipart upload
+given().multiPart("file", new File("src/test/resources/doc.pdf"))
+       .when().post("/documents")
+       .then().statusCode(201);
+
+// Chaining: capture then reuse
+String orderId = given().spec(authSpec).body(order)
+        .post("/orders").jsonPath().getString("id");
+
+given().spec(authSpec).pathParam("id", orderId)
+        .get("/orders/{id}").then().statusCode(200);</code></pre>
+<p>Download: assert content type and byte length via <code>response.asByteArray()</code>. Keep the chained ID in a thread-safe context object, not a static field.</p>`},
+
+{c:"api",q:"How do you integrate API automation with the rest of the suite?",a:`
+<ul>
+<li><strong>Setup/teardown for UI tests</strong> — create the user, order or policy via API in seconds instead of clicking.</li>
+<li><strong>Cross-layer validation</strong> — do it in the UI, verify it landed correctly via API or DB.</li>
+<li><strong>Shift regression down</strong> — anything that doesn't need the browser becomes an API test.</li>
+<li><strong>Contract checks in CI</strong> — schema tests run on every backend build, well before UI regression.</li>
+</ul>`},
+
+{c:"api",q:"Path parameters vs query parameters?",a:`
+<p><strong>Path params</strong> identify a specific resource; <strong>query params</strong> filter, sort or paginate a collection.</p>
+<pre><code>// GET /booking/{id}
+given().spec(authSpec)
+       .pathParam("id", bookingId)
+   .when().get("/booking/{id}")
+   .then().statusCode(200);
+
+// GET /booking?firstname=Karthik&amp;checkin=2026-08-01
+given().spec(authSpec)
+       .queryParam("firstname", "Karthik")
+       .queryParam("checkin", "2026-08-01")
+   .when().get("/booking")
+   .then().body("size()", greaterThan(0));</code></pre>
+<p>Rule of thumb: if removing it would make the URL point at something else entirely, it's a path param.</p>`},
+
+{c:"api",q:"Basic auth in Rest Assured — preemptive vs challenged?",a:`
+<p><strong>Preemptive</strong> sends the Authorization header with the first request. <strong>Challenged</strong> waits for a 401 and then resends with credentials — an extra round trip, and it fails outright against servers that don't issue a challenge.</p>
+<pre><code>// Preemptive — what you almost always want
+given().auth().preemptive().basic(username, password)
+   .when().get("/accounts")
+   .then().statusCode(200);
+
+// Challenged
+given().auth().basic(username, password) ...
+
+// Others
+given().auth().oauth2(token);
+given().auth().form(user, pass, new FormAuthConfig("/login", "user", "pass"));</code></pre>`},
+
+{c:"api",q:"How do you build a request payload — String, Map/JSONObject, or POJO?",a:`
+<pre><code>// 1. Text block — quick, good for malformed/negative cases
+String body = """
+    { "firstname": "Karthik", "totalprice": 500 }
+    """;
+
+// 2. Map or JSONObject — dynamic fields, no class needed
+JSONObject payload = new JSONObject();
+payload.put("firstname", "Karthik");
+payload.put("totalprice", 500);
+
+// 3. POJO — the default for maintained suites
+Booking booking = new Booking("Karthik", 500, true);
+given().spec(authSpec).body(booking).post("/booking");</code></pre>
+<p>POJOs win for anything long-lived: compile-time safety, IDE support, and a field rename breaks the build instead of failing at runtime. Serialisation (object → JSON) and deserialisation (<code>response.as(Booking.class)</code>) are handled by Jackson/Gson automatically.</p>`},
+
+{c:"api",q:"What can you pull out of the Response object?",a:`
+<pre><code>Response response = given().spec(authSpec).when().get("/booking/101");
+
+int status        = response.getStatusCode();
+String contentType= response.getContentType();
+long timeMs       = response.getTime();
+Headers headers   = response.getHeaders();
+String server     = response.getHeader("Server");
+String sessionId  = response.getCookie("SESSIONID");
+String name       = response.jsonPath().getString("firstname");
+List&lt;String&gt; ids  = response.jsonPath().getList("bookings.bookingid");
+Booking booking   = response.as(Booking.class);
+
+response.prettyPrint();      // debugging only</code></pre>
+<p>Capturing the Response first (instead of chaining straight into <code>.then()</code>) is what lets you reuse values across a chained workflow.</p>`},
+
+/* ============ TESTNG ============ */
+{c:"testng",q:"What is the TestNG annotation execution order?",a:`
+<pre><code>@BeforeSuite → @BeforeTest → @BeforeClass → @BeforeMethod
+      → @Test →
+@AfterMethod → @AfterClass → @AfterTest → @AfterSuite</code></pre>
+<p>Typical mapping: <code>@BeforeSuite</code> start reports/load config · <code>@BeforeClass</code> launch browser · <code>@BeforeMethod</code> navigate/login · <code>@AfterMethod</code> screenshot on failure, reset state · <code>@AfterSuite</code> flush reports.</p>`},
+
+{c:"testng",q:"How does @DataProvider work?",a:`
+<pre><code>@DataProvider(name = "loginData", parallel = true)
+public Object[][] getData() {
+    return new Object[][] {
+        {"admin", "admin123"},
+        {"user1", "pass123"}
+    };
+}
+
+@Test(dataProvider = "loginData")
+public void loginTest(String user, String pass) {
+    loginPage.login(user, pass);
+}</code></pre>
+<p>The test runs once per data set. Keep providers in a separate class (<code>dataProviderClass = TestData.class</code>) and feed them from JSON/Excel so data lives outside the code.</p>`},
+
+{c:"testng",q:"@Factory vs @DataProvider?",a:`
+<p><code>@DataProvider</code> runs the <strong>same method</strong> with different data. <code>@Factory</code> creates <strong>multiple instances of a test class</strong> with different constructor arguments — useful when the entire class should run against different configs (per browser, per product type).</p>
+<p>They combine: Factory produces the class instances, DataProvider feeds each method inside them.</p>`},
+
+{c:"testng",q:"How do you configure parallel execution in TestNG?",a:`
+<pre><code>&lt;suite name="Regression" parallel="methods" thread-count="4"&gt;</code></pre>
+<p>Modes: <code>methods</code>, <code>classes</code>, <code>tests</code> (each <code>&lt;test&gt;</code> tag), <code>instances</code>. Pair with ThreadLocal drivers and independent data.</p>
+<p>Also useful: <code>@Test(threadPoolSize = 3, invocationCount = 9)</code> to hammer a single test across threads — handy for concurrency checks.</p>`},
+
+{c:"testng",q:"Explain dependsOnMethods and its risk.",a:`
+<pre><code>@Test
+public void login() { }
+
+@Test(dependsOnMethods = "login")
+public void createOrder() { }</code></pre>
+<p>If <code>login</code> fails, <code>createOrder</code> is <strong>skipped</strong>, not failed — which keeps the report honest. <code>dependsOnGroups</code> works at group level; <code>alwaysRun = true</code> forces execution regardless.</p>
+<p><strong>Risk:</strong> coupling. Dependent tests can't run in isolation or in parallel freely, and one failure cascades. Use only for genuine workflow chains; otherwise make each test set up its own state.</p>`},
+
+{c:"testng",q:"How do you implement retry for flaky tests?",a:`
+<pre><code>public class RetryAnalyzer implements IRetryAnalyzer {
+    private int count = 0;
+    private static final int MAX = 2;
+
+    @Override
+    public boolean retry(ITestResult result) {
+        return count++ &lt; MAX;
+    }
+}
+
+@Test(retryAnalyzer = RetryAnalyzer.class)
+public void flakyTest() { }</code></pre>
+<p>Apply globally with <code>IAnnotationTransformer</code> so you don't annotate every test.</p>
+<div class="tip"><b>Lead angle</b>Retry is a band-aid. Log every retried test and review the list weekly — otherwise you're hiding real product race conditions.</div>`},
+
+{c:"testng",q:"What are TestNG listeners and which have you used?",a:`
+<ul>
+<li><code>ITestListener</code> — onTestFailure/Success/Skipped: screenshots, report logging.</li>
+<li><code>IRetryAnalyzer</code> — retries.</li>
+<li><code>IAnnotationTransformer</code> — modify annotations at runtime (global retry, dynamic timeouts).</li>
+<li><code>ISuiteListener</code> — suite-level setup/teardown.</li>
+<li><code>IReporter</code> — custom report generation.</li>
+</ul>
+<pre><code>public class TestListener implements ITestListener {
+    @Override public void onTestFailure(ITestResult result) {
+        ScreenshotUtil.capture(result.getName());
+        ExtentManager.get().fail(result.getThrowable());
+    }
+}</code></pre>
+<p>Register via <code>@Listeners</code> or the <code>&lt;listeners&gt;</code> block in testng.xml.</p>`},
+
+{c:"testng",q:"How do groups work, and how do you build tiered suites?",a:`
+<pre><code>@Test(groups = {"smoke", "regression"})
+public void loginTest() { }</code></pre>
+<pre><code>&lt;groups&gt;
+  &lt;run&gt;
+    &lt;include name="smoke"/&gt;
+    &lt;exclude name="wip"/&gt;
+  &lt;/run&gt;
+&lt;/groups&gt;</code></pre>
+<p>One codebase serves smoke (per commit), sanity (per deploy) and regression (nightly). <code>@BeforeGroups</code>/<code>@AfterGroups</code> handle group-specific setup.</p>`},
+
+{c:"testng",q:"Soft assert vs hard assert?",a:`
+<p><strong>Hard</strong> (<code>Assert.assertEquals</code>) stops the test at the first failure. <strong>Soft</strong> collects failures and reports them together at <code>assertAll()</code>:</p>
+<pre><code>SoftAssert soft = new SoftAssert();
+soft.assertEquals(page.getTitle(), "Dashboard");
+soft.assertTrue(page.isLogoDisplayed());
+soft.assertAll();   // omit this and the test passes silently</code></pre>
+<p>Soft for validating many fields on one screen; hard for preconditions where continuing is pointless. The forgotten <code>assertAll()</code> is a classic interview trap.</p>`},
+
+{c:"testng",q:"How do you pass parameters from testng.xml?",a:`
+<pre><code>&lt;parameter name="browser" value="chrome"/&gt;</code></pre>
+<pre><code>@BeforeMethod
+@Parameters("browser")
+public void setup(@Optional("chrome") String browser) { }</code></pre>
+<p><code>@Optional</code> supplies a default when the parameter is absent. Rule of thumb: xml parameters for environment/browser config, DataProvider for test data sets.</p>`},
+
+{c:"testng",q:"priority vs dependsOnMethods vs invocationCount — clear them up.",a:`
+<ul>
+<li><code>priority</code> — ordering hint only (lower runs first). No failure relationship. Default is 0, so unprioritised tests run before priority 1.</li>
+<li><code>dependsOnMethods</code> — real dependency: failure upstream skips downstream.</li>
+<li><code>invocationCount</code> — runs the same test N times; combine with <code>threadPoolSize</code> for concurrency, or <code>successPercentage</code> to tolerate partial failures.</li>
+</ul>
+<p>Common gotcha: priority does not guarantee order across parallel threads.</p>`},
+
+{c:"testng",q:"Walk me through your testng.xml.",a:`
+<pre><code>&lt;suite name="Regression" parallel="methods" thread-count="4"&gt;
+
+    &lt;parameter name="env" value="staging"/&gt;
+    &lt;parameter name="browser" value="chrome"/&gt;
+
+    &lt;listeners&gt;
+        &lt;listener class-name="com.qa.listeners.TestListener"/&gt;
+        &lt;listener class-name="com.qa.listeners.RetryTransformer"/&gt;
+    &lt;/listeners&gt;
+
+    &lt;test name="Smoke"&gt;
+        &lt;groups&gt;
+            &lt;run&gt;
+                &lt;include name="smoke"/&gt;
+                &lt;exclude name="wip"/&gt;
+            &lt;/run&gt;
+        &lt;/groups&gt;
+        &lt;classes&gt;
+            &lt;class name="com.qa.tests.LoginTest"/&gt;
+            &lt;class name="com.qa.tests.PaymentTest"&gt;
+                &lt;methods&gt;&lt;exclude name="legacyFlow"/&gt;&lt;/methods&gt;
+            &lt;/class&gt;
+        &lt;/classes&gt;
+    &lt;/test&gt;
+&lt;/suite&gt;</code></pre>
+<p>Keep several suite files — smoke.xml, regression.xml, api.xml — and point Maven at whichever the pipeline needs.</p>`},
+
+{c:"testng",q:"@BeforeSuite vs @BeforeTest vs @BeforeClass — what actually differs?",a:`
+<p>They map to the xml structure, not to intuition:</p>
+<ul>
+<li><strong>@BeforeSuite</strong> — once for the entire <code>&lt;suite&gt;</code>. Load config, start the report, spin up Grid.</li>
+<li><strong>@BeforeTest</strong> — once per <code>&lt;test&gt;</code> tag. Useful when each <code>&lt;test&gt;</code> is a browser or an environment.</li>
+<li><strong>@BeforeClass</strong> — once per test class. Launch the browser for that class.</li>
+<li><strong>@BeforeMethod</strong> — before every <code>@Test</code>. Navigate, log in, reset state.</li>
+</ul>
+<p>Interviewers ask this because most people assume "@BeforeTest runs before each test" — it doesn't; that's @BeforeMethod.</p>`},
+
+/* ============ MAVEN ============ */
+{c:"maven",q:"Explain the Maven build lifecycle phases you care about.",a:`
+<pre><code>validate → compile → test → package → verify → install → deploy</code></pre>
+<ul>
+<li><code>mvn test</code> — runs unit-style tests via <strong>Surefire</strong>.</li>
+<li><code>mvn verify</code> — runs integration tests via <strong>Failsafe</strong> (post-package), then checks.</li>
+<li><code>mvn clean install</code> — full build into the local repo.</li>
+</ul>
+<p>Running a later phase runs everything before it — that's why <code>install</code> triggers your tests.</p>`},
+
+{c:"maven",q:"What are the three Maven lifecycles?",a:`
+<ul>
+<li><strong>clean</strong> — <code>pre-clean, clean, post-clean</code>. Deletes <code>target/</code>.</li>
+<li><strong>default (build)</strong> — validate → compile → test → package → verify → install → deploy.</li>
+<li><strong>site</strong> — <code>site</code>, <code>site-deploy</code>: generates project documentation and reports.</li>
+</ul>
+<pre><code>mvn clean                 # wipe target
+mvn clean test            # wipe, compile, run tests
+mvn clean install         # ... plus package and install to the local .m2 repo
+mvn clean verify -Pregression</code></pre>
+<p>Running a phase runs every phase before it in that lifecycle — which is why <code>install</code> executes your tests.</p>`},
+
+{c:"maven",q:"Difference between a Maven phase, a goal and a plugin?",a:`
+<ul>
+<li><strong>Plugin</strong> — the thing that does the work (surefire, compiler, failsafe, dependency).</li>
+<li><strong>Goal</strong> — a single task inside a plugin, written <code>plugin:goal</code>.</li>
+<li><strong>Phase</strong> — a stage in the lifecycle that goals bind to.</li>
+</ul>
+<pre><code>mvn test                  # a PHASE — triggers surefire:test, which is bound to it
+mvn dependency:tree       # a GOAL — run directly, no lifecycle involved
+mvn surefire:test         # the same goal, invoked explicitly
+mvn help:effective-pom    # goal — shows the pom after inheritance is applied</code></pre>`},
+
+{c:"maven",q:"Surefire vs Failsafe — which do you use for automation suites?",a:`
+<table>
+<tr><th>Surefire</th><th>Failsafe</th></tr>
+<tr><td>Runs in <code>test</code> phase</td><td>Runs in <code>integration-test</code> / <code>verify</code></td></tr>
+<tr><td>Fails the build immediately</td><td>Defers failure to <code>verify</code> so teardown still runs</td></tr>
+<tr><td>Default pattern <code>*Test.java</code></td><td>Default pattern <code>*IT.java</code></td></tr>
+</table>
+<p>UI/API suites belong in Failsafe when they need the app packaged/deployed first; most Selenium+TestNG teams still drive Surefire with a testng.xml pointer:</p>
+<pre><code>&lt;plugin&gt;
+  &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;
+  &lt;configuration&gt;
+    &lt;suiteXmlFiles&gt;&lt;suiteXmlFile&gt;testng.xml&lt;/suiteXmlFile&gt;&lt;/suiteXmlFiles&gt;
+  &lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre>`},
+
+{c:"maven",q:"How do you run different suites/environments from the command line?",a:`
+<pre><code>mvn clean test -DsuiteXmlFile=smoke.xml -Denv=qa -Dbrowser=chrome</code></pre>
+<p>Read them in code with <code>System.getProperty("env", "qa")</code>, falling back to a properties file. Or use <strong>profiles</strong>:</p>
+<pre><code>&lt;profiles&gt;
+  &lt;profile&gt;
+    &lt;id&gt;regression&lt;/id&gt;
+    &lt;properties&gt;&lt;suiteXmlFile&gt;regression.xml&lt;/suiteXmlFile&gt;&lt;/properties&gt;
+  &lt;/profile&gt;
+&lt;/profiles&gt;</code></pre>
+<pre><code>mvn clean verify -Pregression</code></pre>
+<p>This is what CI jobs call — same command locally and on the agent.</p>`},
+
+{c:"maven",q:"How do you run a specific class, suite or group from the command line?",a:`
+<pre><code># whole suite file
+mvn clean test -DsuiteXmlFile=testng.xml
+
+# one class, or one method
+mvn test -Dtest=LoginTest
+mvn test -Dtest=LoginTest#invalidPasswordTest
+
+# TestNG groups
+mvn test -Dgroups=smoke
+
+# browser + environment together
+mvn clean test -Dbrowser=chrome -Denv=staging -DsuiteXmlFile=regression.xml
+
+# keep going after a module fails, and skip tests on a packaging build
+mvn clean install -DskipTests</code></pre>
+<p>Whatever the pipeline runs, make sure it's the exact same command a developer can run locally — that's what stops "works on my machine".</p>`},
+
+{c:"maven",q:"How do you read -D parameters inside Java?",a:`
+<pre><code>// mvn test -Denv=staging -Dbrowser=chrome
+String env     = System.getProperty("env", "qa");         // second arg = default
+String browser = System.getProperty("browser", "chrome");</code></pre>
+<p>Wrap it so the whole framework reads config the same way, with a sensible precedence chain — command line beats environment variable beats properties file:</p>
+<pre><code>public static String get(String key) {
+    String value = System.getProperty(key);                 // -D wins
+    if (value == null) value = System.getenv(key.toUpperCase());
+    if (value == null) value = properties.getProperty(key); // config.properties
+    return value;
+}</code></pre>
+<p>Also available: <code>System.getenv()</code> for CI secrets, and <code>System.setProperty()</code> if you need to set one at runtime.</p>`},
+
+{c:"maven",q:"Explain Maven dependency scopes and how you resolve version conflicts.",a:`
+<ul>
+<li><code>compile</code> (default) — available everywhere.</li>
+<li><code>test</code> — TestNG, Rest Assured, AssertJ; not shipped.</li>
+<li><code>provided</code> — supplied at runtime by the container.</li>
+<li><code>runtime</code> — needed to run, not to compile (JDBC drivers).</li>
+</ul>
+<p>For conflicts, Maven uses <strong>nearest-wins</strong>. Diagnose with <code>mvn dependency:tree</code>, then either <code>&lt;exclusions&gt;</code> the transitive offender or pin the version in <code>&lt;dependencyManagement&gt;</code>. Classic case: Rest Assured and Selenium both pulling different Guava/Jackson versions.</p>`},
+
+/* ============ DEVOPS ============ */
+{c:"devops",q:"How do you integrate the suite into CI/CD?",a:`
+<ul>
+<li><strong>Trigger tiers</strong> — smoke on every PR/commit, sanity on deploy to QA, full regression nightly.</li>
+<li><strong>Quality gates</strong> — fail the build on smoke failure; regression failures raise a report and notify, not necessarily block.</li>
+<li><strong>Containerise</strong> — run tests in Docker with Selenium Grid/Selenoid so agents are identical.</li>
+<li><strong>Artifacts</strong> — publish Extent/Allure HTML, screenshots, videos, and JUnit XML for the pipeline's native test view.</li>
+<li><strong>Notify</strong> — Teams/Slack summary with pass rate and a link to the report.</li>
+<li><strong>Secrets</strong> — credentials from the pipeline's secret store, never in the pom or repo.</li>
+</ul>`},
+
+{c:"devops",q:"Git: difference between fetch and pull?",a:`
+<p><code>git fetch</code> downloads remote commits into your local tracking branches but <strong>doesn't touch your working directory</strong>. <code>git pull</code> is <code>fetch</code> + <code>merge</code> (or rebase) — it changes your files immediately.</p>
+<pre><code>git fetch origin              # see what's new, safely
+git diff main origin/main     # review before integrating
+git merge origin/main         # now apply it
+
+git pull                      # both steps at once
+git pull --rebase             # replay your commits on top — cleaner history</code></pre>
+<p>Fetch first is the safer habit when you have uncommitted work in progress.</p>`},
+
+{c:"devops",q:"Git: how do you push a local project to a remote repository?",a:`
+<pre><code>git init
+git add .
+git commit -m "Initial automation framework"
+git branch -M main
+git remote add origin https://github.com/org/qa-automation.git
+git push -u origin main        # -u sets upstream, so later just 'git push'</code></pre>
+<p>Everyday flow after that:</p>
+<pre><code>git checkout -b feature/payment-tests
+git add . && git commit -m "Add payment regression tests"
+git push -u origin feature/payment-tests    # then raise a PR</code></pre>`},
+
+{c:"devops",q:"How do you manage branching for an automation repo?",a:`
+<ul>
+<li><strong>main protected</strong> — no direct pushes; every change goes through a PR with at least one reviewer.</li>
+<li><strong>Feature branches</strong> per story or defect, short-lived, named consistently (<code>feature/</code>, <code>fix/</code>).</li>
+<li><strong>Smoke suite runs on every PR</strong> as a merge gate — automation code gets the same quality bar as product code.</li>
+<li><strong>Tag per release</strong> so you can reproduce exactly what ran against a given build.</li>
+<li><strong>.gitignore</strong> for <code>target/</code>, <code>test-output/</code>, reports, screenshots, and anything with credentials.</li>
+</ul>
+<div class="tip"><b>Lead angle</b>Secrets in the repo history is the failure that costs you the most — enforce a scanner in the PR pipeline.</div>`},
+
+{c:"devops",q:"How do you debug a failing automation test?",a:`
+<p>In the IDE:</p>
+<ul>
+<li><strong>Breakpoints</strong> — including conditional ones (<code>i == 47</code>) and exception breakpoints that trigger the moment NoSuchElementException is thrown.</li>
+<li><strong>Step over / into / out</strong> to follow the call into page objects.</li>
+<li><strong>Variable watches and Evaluate Expression</strong> — run <code>driver.findElements(locator).size()</code> live while paused on the failure.</li>
+<li><strong>Call stack</strong> to find which layer actually threw.</li>
+</ul>
+<p>In CI, where you can't attach a debugger, the evidence has to be captured up front: screenshot and page source on failure, video/trace, request/response logs for API calls, and structured logging.</p>
+<pre><code>// Log4j2 / SLF4J levels, coarsest to finest
+ERROR  → test or framework failure
+WARN   → retry happened, fallback used
+INFO   → test started, navigated, key business step
+DEBUG  → locator resolved, wait satisfied
+TRACE  → raw request/response payloads</code></pre>
+<p>Run INFO in CI, DEBUG locally. If a CI-only failure can't be diagnosed from the artifacts, that's a gap in the framework, not bad luck.</p>`}
+
+];;
+
+/* State & Persistence */
+let theme = localStorage.getItem('bank_theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+let activeCategory = localStorage.getItem('bank_cat') || 'all';
+let activeStatus = localStorage.getItem('bank_status') || 'all';
+let query = '';
+let done = new Set(JSON.parse(localStorage.getItem('bank_done') || '[]'));
+let bookmarks = new Set(JSON.parse(localStorage.getItem('bank_bookmarks') || '[]'));
+let fcIndex = 0;
+
+document.documentElement.setAttribute('data-theme', theme);
+
+const ORDER = Object.keys(CATS);
+Q.sort((a, b) => ORDER.indexOf(a.c) - ORDER.indexOf(b.c));
+Q.forEach((item, i) => item.id = i);
+
+/* Theme Toggle */
+document.getElementById('btn-theme').addEventListener('click', () => {
+  theme = theme === 'light' ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('bank_theme', theme);
+});
+
+/* Code Decorator & Copy */
+function formatAnswers() {
+  // Process code blocks for headers, language tags, syntax highlighting, copy buttons
+  document.querySelectorAll('.a pre code').forEach(codeEl => {
+    if (codeEl.dataset.processed) return;
+    codeEl.dataset.processed = "true";
+    
+    let raw = codeEl.innerText;
+    let lang = "CODE";
+    if (raw.includes("public class") || raw.includes("WebDriver") || raw.includes("ThreadLocal")) lang = "JAVA";
+    else if (raw.startsWith("{") || raw.startsWith("[") || raw.includes('"name":')) lang = "JSON";
+    else if (raw.includes("Scenario:") || raw.includes("Given ")) lang = "GHERKIN";
+    else if (raw.includes("SELECT ") || raw.includes("WHERE ")) lang = "SQL";
+    
+    const container = document.createElement('div');
+    container.className = 'code-container';
+    
+    const header = document.createElement('div');
+    header.className = 'code-header';
+    header.innerHTML = `<span class="code-lang">${lang}</span><button class="btn-copy">Copy</button>`;
+    
+    const pre = codeEl.parentElement;
+    pre.parentNode.insertBefore(container, pre);
+    container.appendChild(header);
+    container.appendChild(pre);
+    
+    // Copy Event
+    header.querySelector('.btn-copy').addEventListener('click', e => {
+      navigator.clipboard.writeText(raw);
+      e.target.innerText = 'Copied!';
+      setTimeout(() => e.target.innerText = 'Copy', 1800);
+    });
+  });
+}
+
+/* Filter Chips */
+function renderChips() {
+  const counts = {};
+  Q.forEach(x => counts[x.c] = (counts[x.c] || 0) + 1);
+  let html = `<button class="chip" data-cat="all" aria-pressed="${activeCategory==='all'}">
+    <i></i><span>All Tracks</span><b>${Q.length}</b></button>`;
+  for (const key in CATS){
+    html += `<button class="chip" data-cat="${key}" aria-pressed="${activeCategory===key}" style="--dot:${CATS[key].color}">
+      <i></i><span>${CATS[key].label}</span><b>${counts[key]||0}</b></button>`;
+  }
+  document.getElementById('chips').innerHTML = html;
+}
+
+/* Visible Items */
+function visible() {
+  const q = query.trim().toLowerCase();
+  return Q.filter(x => {
+    const matchCat = activeCategory === 'all' || x.c === activeCategory;
+    const matchSearch = !q || (x.q + ' ' + x.a).toLowerCase().includes(q);
+    let matchStatus = true;
+    if (activeStatus === 'bookmarked') matchStatus = bookmarks.has(x.id);
+    else if (activeStatus === 'completed') matchStatus = done.has(x.id);
+    else if (activeStatus === 'unanswered') matchStatus = !done.has(x.id);
+    return matchCat && matchSearch && matchStatus;
+  });
+}
+
+/* Highlight Match */
+function highlight(text, q) {
+  if (!q.trim()) return text;
+  const regex = new RegExp(`(${q.trim().replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+  return text.replace(regex, '<mark class="search-hl">$1</mark>');
+}
+
+/* Render Question Cards */
+function render() {
+  const items = visible();
+  document.getElementById('count').textContent = `Showing ${items.length} question${items.length === 1 ? '' : 's'}`;
+
+  const listEl = document.getElementById('list');
+  if (!items.length){
+    listEl.innerHTML = `<div class="empty">No questions match your current filter or search criteria.</div>`;
+  } else {
+    let html = '', lastCat = null;
+    items.forEach((x, idx) => {
+      if (x.c !== lastCat){
+        html += `<div class="group-head" style="--gc:${CATS[x.c].color}">
+          <span>${CATS[x.c].label}</span>
+          <span>${items.filter(i=>i.c===x.c).length} items</span>
+        </div>`;
+        lastCat = x.c;
+      }
+      const isDone = done.has(x.id);
+      const isBookmarked = bookmarks.has(x.id);
+      
+      html += `
+      <article class="card ${isDone ? 'done' : ''}" data-id="${x.id}" style="--cc:${CATS[x.c].color}">
+        <div class="q" role="button" tabindex="0">
+          <span class="qnum">${String(idx+1).padStart(2,'0')}</span>
+          <span class="qtext">${highlight(x.q, query)}</span>
+          <div class="card-actions">
+            <button class="btn-icon btn-star ${isBookmarked ? 'bookmarked' : ''}" title="Bookmark Question">★</button>
+            <button class="tick" title="Mark as Mastered">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3.5"><path d="M4 12.5l5.5 5.5L20 7"/></svg>
+            </button>
+            <svg class="caret" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 6l6 6-6 6"/></svg>
+          </div>
+        </div>
+        <div class="a-wrap">
+          <div class="a-inner">
+            <div class="a">${x.a}</div>
+          </div>
+        </div>
+      </article>`;
+    });
+    listEl.innerHTML = html;
+  }
+  formatAnswers();
+  updateProgress();
+}
+
+/* Progress Dashboard Update */
+function updateProgress() {
+  const pct = Math.round((done.size / Q.length) * 100);
+  document.getElementById('radial-score').textContent = `${pct}%`;
+  document.getElementById('score').textContent = `${done.size} / ${Q.length} mastered`;
+  
+  // Radial ring animation (dasharray = 138)
+  const offset = 138 - (138 * pct / 100);
+  document.getElementById('radial-fill').style.strokeDashoffset = offset;
+}
+
+/* Event Listeners */
+const listEl = document.getElementById('list');
+
+listEl.addEventListener('click', e => {
+  const card = e.target.closest('.card');
+  if (!card) return;
+  const id = +card.dataset.id;
+  
+  // Star/Bookmark toggle
+  if (e.target.closest('.btn-star')) {
+    e.stopPropagation();
+    bookmarks.has(id) ? bookmarks.delete(id) : bookmarks.add(id);
+    localStorage.setItem('bank_bookmarks', JSON.stringify([...bookmarks]));
+    render();
+    return;
+  }
+  
+  // Done Tick toggle
+  if (e.target.closest('.tick')) {
+    e.stopPropagation();
+    done.has(id) ? done.delete(id) : done.add(id);
+    localStorage.setItem('bank_done', JSON.stringify([...done]));
+    render();
+    return;
+  }
+  
+  // Accordion toggle
+  if (e.target.closest('.q')) {
+    card.classList.toggle('open');
+  }
+});
+
+// Category Chips click
+document.getElementById('chips').addEventListener('click', e => {
+  const chip = e.target.closest('.chip');
+  if (!chip) return;
+  activeCategory = chip.dataset.cat;
+  localStorage.setItem('bank_cat', activeCategory);
+  renderChips(); render();
+});
+
+// Status Tabs click
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeStatus = btn.dataset.status;
+    localStorage.setItem('bank_status', activeStatus);
+    render();
+  });
+});
+
+// Search & Hotkeys
+const searchInput = document.getElementById('search');
+const searchClear = document.getElementById('search-clear');
+
+searchInput.addEventListener('input', e => {
+  query = e.target.value;
+  searchClear.style.display = query ? 'block' : 'none';
+  render();
+});
+
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  query = '';
+  searchClear.style.display = 'none';
+  render();
+});
+
+window.addEventListener('keydown', e => {
+  if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+    e.preventDefault();
+    searchInput.focus();
+  }
+  if (e.key === 'Escape' && document.activeElement === searchInput) {
+    searchInput.blur();
+  }
+});
+
+// Bulk controls
+document.getElementById('expand').onclick = () => document.querySelectorAll('.card').forEach(c => c.classList.add('open'));
+document.getElementById('collapse').onclick = () => document.querySelectorAll('.card').forEach(c => c.classList.remove('open'));
+document.getElementById('reset').onclick = () => {
+  if (confirm("Reset all completion and bookmark progress?")) {
+    done.clear(); bookmarks.clear();
+    localStorage.removeItem('bank_done');
+    localStorage.removeItem('bank_bookmarks');
+    render();
+  }
+};
+
+/* Flashcard Practice Modal Engine */
+const fcModal = document.getElementById('flashcard-modal');
+const fcQ = document.getElementById('fc-q');
+const fcAns = document.getElementById('fc-answer');
+const fcReveal = document.getElementById('fc-reveal');
+
+function openFlashcard() {
+  const items = visible();
+  if (!items.length) return alert("No questions in current view to practice!");
+  fcIndex = 0;
+  showFlashcard(items);
+  fcModal.classList.add('active');
+}
+
+function showFlashcard(items) {
+  const item = items[fcIndex];
+  document.getElementById('fc-track').textContent = CATS[item.c].label;
+  document.getElementById('fc-counter').textContent = `Question ${fcIndex + 1} of ${items.length}`;
+  fcQ.textContent = item.q;
+  fcAns.innerHTML = item.a;
+  fcAns.classList.remove('show');
+  fcReveal.style.display = 'block';
+  document.getElementById('fc-star').textContent = bookmarks.has(item.id) ? '★ Starred' : '☆ Star';
+  document.getElementById('fc-mark').textContent = done.has(item.id) ? '✓ Mastered' : 'Mark Mastered';
+  formatAnswers();
+}
+
+document.getElementById('btn-flashcard').onclick = openFlashcard;
+document.getElementById('fc-close').onclick = () => fcModal.classList.remove('active');
+fcReveal.onclick = () => {
+  fcAns.classList.add('show');
+  fcReveal.style.display = 'none';
+};
+
+document.getElementById('fc-next').onclick = () => {
+  const items = visible();
+  fcIndex = (fcIndex + 1) % items.length;
+  showFlashcard(items);
+};
+
+document.getElementById('fc-prev').onclick = () => {
+  const items = visible();
+  fcIndex = (fcIndex - 1 + items.length) % items.length;
+  showFlashcard(items);
+};
+
+document.getElementById('fc-star').onclick = () => {
+  const items = visible();
+  const item = items[fcIndex];
+  bookmarks.has(item.id) ? bookmarks.delete(item.id) : bookmarks.add(item.id);
+  localStorage.setItem('bank_bookmarks', JSON.stringify([...bookmarks]));
+  showFlashcard(items); render();
+};
+
+document.getElementById('fc-mark').onclick = () => {
+  const items = visible();
+  const item = items[fcIndex];
+  done.has(item.id) ? done.delete(item.id) : done.add(item.id);
+  localStorage.setItem('bank_done', JSON.stringify([...done]));
+  showFlashcard(items); render();
+};
+
+// Init
+renderChips();
+render();
+</script>
+</body>
+</html>
